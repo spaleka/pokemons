@@ -1,11 +1,11 @@
 import React from 'react'
-import { StyleSheet, Text, View } from 'react-native'
+import { SafeAreaView, StyleSheet, Text } from 'react-native'
 
 export default function Favourite() {
   return (
-    <View style={styles.titleContainer}>
-      <Text style= {styles.titlePokemons}>Your favourite POKEMONNNNN!</Text>
-    </View>
+    <SafeAreaView style={{ flex: 1 }}>
+      <Text style={styles.titleContainer}> This is your fav pokemon</Text>
+      </SafeAreaView>
   )
 }
 
