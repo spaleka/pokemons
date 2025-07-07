@@ -1,4 +1,3 @@
-// hooks/useFavoritePokemon.ts
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { useCallback, useState } from "react";
 
@@ -7,14 +6,17 @@ const STORAGE_KEY = "FavPokemon";
 export type FavoritePokemon = {
   name: string;
   sprite: string;
+  type?: string[];
 };
 
 const useFavoritePokemon = () => {
   const [favPokemon, setFavPokemon] = useState<FavoritePokemon | null>(null);
 
   const loadFavorite = useCallback(async () => {
+    let value = [];
     try {
       const value = await AsyncStorage.getItem(STORAGE_KEY);
+      // const value = await AsyncStorage.getAllKeys();
       if (value) {
         setFavPokemon(JSON.parse(value));
       } else {

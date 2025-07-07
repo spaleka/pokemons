@@ -1,6 +1,6 @@
 import { useFocusEffect } from "@react-navigation/native";
 import React, { useCallback } from "react";
-import { Image, StyleSheet, Text, View } from "react-native";
+import { Image, Pressable, StyleSheet, Text, View } from "react-native";
 import useFavoritePokemon from "../hooks/useFavouritePokemon";
 
 const FavouritePokemon = () => {
@@ -32,7 +32,12 @@ const FavouritePokemon = () => {
         <Text style={styles.nameItem}>{favPokemon.name}</Text>
       </View>
       <View>
-        <Text>Info: ....</Text>
+        <Text>{favPokemon.type}</Text>
+      </View>
+      <View>
+        <Pressable onPress={clearFavorite}>
+          <Text>💔</Text>
+        </Pressable>
       </View>
     </View>
   );
