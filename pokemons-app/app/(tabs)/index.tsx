@@ -1,16 +1,16 @@
-import React, { useState } from "react";
-import { StyleSheet } from "react-native";
+import React from "react";
+import { StyleSheet, Text } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import PokemonList from "../components/PokemonList";
 
-type PokemonListItem = {
-  name: string;
-  url: string;
-  sprite: string;
-};
+// type PokemonListItem = {
+//   name: string;
+//   url: string;
+//   sprite: string;
+// };
 
 export default function Home() {
-  const [data, setData] = useState<PokemonListItem[]>([]);
+  // const [data, setData] = useState<PokemonListItem[]>([]);
 
   // useEffect(() => {
   //   fetchData();
@@ -45,21 +45,22 @@ export default function Home() {
   //   }
   // };
 
- return (
+  return (
     <SafeAreaView style={{ flex: 1 }}>
-      <PokemonList/>
-      </SafeAreaView>
-  )
+      <Text>CHOOSE YOUR POKEMON</Text>
+      <PokemonList />
+    </SafeAreaView>
+  );
 }
 
 const styles = StyleSheet.create({
-    titleContainer: {
-        flex: 1,
-        justifyContent: 'center',
-        alignItems: 'center',
-    },
-    titlePokemons: {
-        fontSize: 24,
-        fontWeight: 'bold',
-    },
-})
+  titleContainer: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  titlePokemons: {
+    fontSize: 24,
+    fontWeight: "bold",
+  },
+});

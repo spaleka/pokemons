@@ -1,28 +1,33 @@
-import { FlashList } from '@shopify/flash-list';
-import React from 'react';
-import { Text, View } from 'react-native';
-import usePokemons from '../hooks/usePokemons'; // adjust path if needed
-import PokemonCard from './PokemonCard';
+import { FlashList } from "@shopify/flash-list";
+import React from "react";
+import { Text } from "react-native";
+import usePokemons from "../hooks/usePokemons"; // adjust path if needed
+import PokemonCard from "./PokemonCard";
 
 const PokemonList = () => {
-  const { data, loading} = usePokemons();
+  const { data, loading, loadMore, hasNextPage } = usePokemons();
 
-  if (loading) return <Text>Loading...</Text>;
-//   if (error) return <Text>Error loading pokemons.</Text>;
+  if (!data.length && loading) return <Text>Loading...</Text>;
+  //   if (error) return <Text>Error loading pokemons.</Text>;
 
   return (
-    <View>
+    <>
       <FlashList
         data={data}
         estimatedItemSize={70}
         renderItem={({ item }) => (
           <PokemonCard name={item.name} sprite={item.sprite} />
         )}
-        keyExtractor={item => item.name}
+        keyExtractor={(item) => item.name}
+        style={{ flex: 1 }}
+        onEndReached={loadMore}
+        onEndReachedThreshold={0.5}
+        ListFooterComponent={
+          loading && hasNextPage ? <Text>Loading more...</Text> : null
+        }
       />
-      <Text>PokemonList</Text>
-    </View>
-  )
-}
+    </>
+  );
+};
 
-export default PokemonList
+export default PokemonList;

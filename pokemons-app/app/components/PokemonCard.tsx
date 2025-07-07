@@ -1,21 +1,18 @@
-import React from 'react';
-import { Image, StyleSheet, Text, View } from 'react-native';
+import React from "react";
+import { Image, StyleSheet, Text, View } from "react-native";
 
 export type PokemonCardProps = {
   name: string;
   sprite: string;
-}
-const PokemonCard = ({name, sprite}: PokemonCardProps) => {
+};
+const PokemonCard = ({ name, sprite }: PokemonCardProps) => {
   return (
     <View style={styles.pokemonItem}>
-                <Image
-                  source={{ uri: sprite }}
-                  style={{ width: 50, height: 50 }}
-                />
-                <Text>{name}</Text>
-              </View>
-  )
-}
+      <Image source={{ uri: sprite }} style={{ width: 50, height: 50 }} />
+      <Text>{name}</Text>
+    </View>
+  );
+};
 const styles = StyleSheet.create({
   pokemonItem: {
     fontSize: 18,
@@ -31,4 +28,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default PokemonCard
+export default PokemonCard;

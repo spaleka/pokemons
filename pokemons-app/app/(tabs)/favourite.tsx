@@ -1,10 +1,12 @@
 import React from 'react'
-import { SafeAreaView, StyleSheet, Text } from 'react-native'
+import { SafeAreaView, StyleSheet } from 'react-native'
+import PokemonList from '../components/PokemonList'
 
 export default function Favourite() {
   return (
     <SafeAreaView style={{ flex: 1 }}>
-      <Text style={styles.titleContainer}> This is your fav pokemon</Text>
+      {/* <Text style={styles.titleContainer}> This is your fav pokemon</Text> */}
+      <PokemonList />
       </SafeAreaView>
   )
 }
