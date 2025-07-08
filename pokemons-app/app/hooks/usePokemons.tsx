@@ -27,10 +27,6 @@ export type PokemonListItem = {
   abilities: Ability[];
   // height: number;
   // weight: number;
-  // stats: {
-  //   name: string;
-  //   base_stat: number;
-  // }[];
 };
 
 function usePokemons() {
@@ -49,8 +45,6 @@ function usePokemons() {
   const fetchPokemonDetails = async (url: string) => {
     const res = await axios.get(url);
     const data = res.data;
-    // const speciesRes = await axios.get(data.species.url);
-    // const speciesData = speciesRes.data;
     return {
       id: data.id,
       name: data.name,
@@ -71,13 +65,6 @@ function usePokemons() {
           url: a.ability.url,
         },
       })),
-      // height: data.height,
-      // weight: data.weight,
-      // stats: data.stats.map((s: any) => ({
-      //   name: s.stat.name,
-      //   base_stat: s.base_stat,
-      // })),
-      // color: speciesData.color.name,
     };
   };
 

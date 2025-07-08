@@ -1,10 +1,18 @@
 import { useFocusEffect } from "@react-navigation/native";
 import React, { useCallback } from "react";
-import { Image, Pressable, StyleSheet, Text, View } from "react-native";
+import {
+  Image,
+  Pressable,
+  ScrollView,
+  StyleSheet,
+  Text,
+  View,
+} from "react-native";
 import useFavoritePokemon from "../hooks/useFavouritePokemon";
 
 const FavouritePokemon = () => {
-  const { favPokemon, loadFavorite, clearFavorite } = useFavoritePokemon();
+  const { favPokemon, loadFavorite, clearFavorite, removeFavorite } =
+    useFavoritePokemon();
 
   useFocusEffect(
     useCallback(() => {
@@ -12,7 +20,7 @@ const FavouritePokemon = () => {
     }, [loadFavorite])
   );
 
-  if (!favPokemon) {
+  if (favPokemon.length === 0) {
     return (
       <View style={{ padding: 20 }}>
         <Text style={{ fontSize: 18 }}>Brak ulubionego Pokemona.</Text>
@@ -21,31 +29,21 @@ const FavouritePokemon = () => {
   }
 
   return (
-    <View style={styles.pokemonContainer}>
-      <View>
-        <Image
-          source={{ uri: favPokemon.sprite }}
-          style={{ width: 200, height: 200 }}
-        />
-      </View>
-      <View>
-        <Text style={styles.nameItem}>{favPokemon.name}</Text>
-      </View>
-      <View>
-        <Text>Type: {favPokemon.types.map((t) => t.type.name).join(", ")}</Text>
-      </View>
-      <View>
-        <Text>
-          Abilities:{" "}
-          {favPokemon.abilities.map((a) => a.ability.name).join(", ")}
-        </Text>
-      </View>
-      <View>
-        <Pressable onPress={clearFavorite}>
-          <Text>💔</Text>
-        </Pressable>
-      </View>
-    </View>
+    <ScrollView contentContainerStyle={{ padding: 20 }}>
+      {favPokemon.map((pokemon) => (
+        <View key={pokemon.id} style={styles.pokemonContainer}>
+          <Image style={styles.image} source={{ uri: pokemon.sprite }} />
+          <Text style={styles.nameItem}>{pokemon.name}</Text>
+          <Text>Type: {pokemon.types.map((t) => t.type.name).join(", ")}</Text>
+          <Text>
+            Abilities: {pokemon.abilities.map((a) => a.ability.name).join(", ")}
+          </Text>
+          <Pressable onPress={() => removeFavorite(pokemon.id)}>
+            <Text>💔</Text>
+          </Pressable>
+        </View>
+      ))}
+    </ScrollView>
   );
 };
 
@@ -55,11 +53,19 @@ const styles = StyleSheet.create({
     padding: 20,
     alignItems: "center",
     gap: 12,
+    margin: 5,
+    borderWidth: 1,
+    borderColor: "black",
+    borderRadius: 4,
   },
   nameItem: {
     fontSize: 24,
     fontWeight: "bold",
     textTransform: "capitalize",
+  },
+  image: {
+    width: 200,
+    height: 200,
   },
 });
 
