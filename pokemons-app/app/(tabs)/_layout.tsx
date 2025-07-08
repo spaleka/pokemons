@@ -25,6 +25,16 @@ export default function Layout() {
           ),
         }}
       />
+      <Tabs.Screen
+        name="map"
+        options={{
+          headerShown: false,
+          title: "Map",
+          tabBarIcon: ({ color }) => (
+            <FontAwesome size={28} name="map" color={color} />
+          ),
+        }}
+      />
     </Tabs>
   );
 }

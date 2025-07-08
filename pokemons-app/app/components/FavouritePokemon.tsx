@@ -23,27 +23,35 @@ const FavouritePokemon = () => {
   if (favPokemon.length === 0) {
     return (
       <View style={{ padding: 20 }}>
-        <Text style={{ fontSize: 18 }}>Brak ulubionego Pokemona.</Text>
+        <Text style={{ fontSize: 18 }}>No favourite Pokemons :(</Text>
       </View>
     );
   }
 
   return (
-    <ScrollView contentContainerStyle={{ padding: 20 }}>
-      {favPokemon.map((pokemon) => (
-        <View key={pokemon.id} style={styles.pokemonContainer}>
-          <Image style={styles.image} source={{ uri: pokemon.sprite }} />
-          <Text style={styles.nameItem}>{pokemon.name}</Text>
-          <Text>Type: {pokemon.types.map((t) => t.type.name).join(", ")}</Text>
-          <Text>
-            Abilities: {pokemon.abilities.map((a) => a.ability.name).join(", ")}
-          </Text>
-          <Pressable onPress={() => removeFavorite(pokemon.id)}>
-            <Text>💔</Text>
-          </Pressable>
-        </View>
-      ))}
-    </ScrollView>
+    <>
+      <Pressable onPress={clearFavorite}>
+        <Text style={styles.removeBtn}>REMOVE ALL</Text>
+      </Pressable>
+      <ScrollView contentContainerStyle={{ padding: 20 }}>
+        {favPokemon.map((pokemon) => (
+          <View key={pokemon.id} style={styles.pokemonContainer}>
+            <Image style={styles.image} source={{ uri: pokemon.sprite }} />
+            <Text style={styles.nameItem}>{pokemon.name}</Text>
+            <Text>
+              Type: {pokemon.types.map((t) => t.type.name).join(", ")}
+            </Text>
+            <Text>
+              Abilities:{" "}
+              {pokemon.abilities.map((a) => a.ability.name).join(", ")}
+            </Text>
+            <Pressable onPress={() => removeFavorite(pokemon.id)}>
+              <Text>💔</Text>
+            </Pressable>
+          </View>
+        ))}
+      </ScrollView>
+    </>
   );
 };
 
@@ -56,7 +64,7 @@ const styles = StyleSheet.create({
     margin: 5,
     borderWidth: 1,
     borderColor: "black",
-    borderRadius: 4,
+    borderRadius: 12,
   },
   nameItem: {
     fontSize: 24,
@@ -66,6 +74,11 @@ const styles = StyleSheet.create({
   image: {
     width: 200,
     height: 200,
+  },
+  removeBtn: {
+    fontSize: 10,
+    color: "red",
+    textAlign: "right",
   },
 });
 
