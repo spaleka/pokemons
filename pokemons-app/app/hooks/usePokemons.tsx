@@ -1,11 +1,38 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 
+type Ability = {
+  ability: {
+    name: string;
+    url: string;
+  };
+  is_hidden: boolean;
+  slot: number;
+};
+
+type Type = {
+  slot: number;
+  type: {
+    name: string;
+    url: string;
+  };
+};
+
 export type PokemonListItem = {
+  id: number;
   name: string;
   url: string;
   sprite: string;
+  types: Type[];
+  abilities: Ability[];
+  // height: number;
+  // weight: number;
+  // stats: {
+  //   name: string;
+  //   base_stat: number;
+  // }[];
 };
+
 function usePokemons() {
   const [data, setData] = useState<PokemonListItem[]>([]);
   const [loading, setLoading] = useState(false);
@@ -21,7 +48,37 @@ function usePokemons() {
 
   const fetchPokemonDetails = async (url: string) => {
     const res = await axios.get(url);
-    return res.data;
+    const data = res.data;
+    // const speciesRes = await axios.get(data.species.url);
+    // const speciesData = speciesRes.data;
+    return {
+      id: data.id,
+      name: data.name,
+      url: url,
+      sprite: data.sprites.front_default,
+      types: data.types.map((t: any) => ({
+        slot: t.slot,
+        type: {
+          name: t.type.name,
+          url: t.type.url,
+        },
+      })),
+      abilities: data.abilities.map((a: any) => ({
+        slot: a.slot,
+        is_hidden: a.is_hidden,
+        ability: {
+          name: a.ability.name,
+          url: a.ability.url,
+        },
+      })),
+      // height: data.height,
+      // weight: data.weight,
+      // stats: data.stats.map((s: any) => ({
+      //   name: s.stat.name,
+      //   base_stat: s.base_stat,
+      // })),
+      // color: speciesData.color.name,
+    };
   };
 
   const fetchData = async () => {
@@ -34,13 +91,9 @@ function usePokemons() {
       const results = response.data.results;
 
       const detailedData = await Promise.all(
-        results.map(async (pokemon: PokemonListItem) => {
+        results.map(async (pokemon: { name: string; url: string }) => {
           const details = await fetchPokemonDetails(pokemon.url);
-          return {
-            name: pokemon.name,
-            id: details.id,
-            sprite: details.sprites.front_default,
-          };
+          return details;
         })
       );
 
@@ -60,4 +113,5 @@ function usePokemons() {
 
   return { data, loading, loadMore: fetchData, hasNextPage };
 }
+
 export default usePokemons;

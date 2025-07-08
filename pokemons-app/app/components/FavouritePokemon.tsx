@@ -32,7 +32,13 @@ const FavouritePokemon = () => {
         <Text style={styles.nameItem}>{favPokemon.name}</Text>
       </View>
       <View>
-        <Text>{favPokemon.type}</Text>
+        <Text>Type: {favPokemon.types.map((t) => t.type.name).join(", ")}</Text>
+      </View>
+      <View>
+        <Text>
+          Abilities:{" "}
+          {favPokemon.abilities.map((a) => a.ability.name).join(", ")}
+        </Text>
       </View>
       <View>
         <Pressable onPress={clearFavorite}>
@@ -42,19 +48,19 @@ const FavouritePokemon = () => {
     </View>
   );
 };
+
 const styles = StyleSheet.create({
   pokemonContainer: {
+    flex: 1,
+    padding: 20,
     alignItems: "center",
-    padding: 10,
-    margin: 5,
-    borderWidth: 1,
-    borderColor: "black",
-    borderRadius: 4,
+    gap: 12,
   },
   nameItem: {
-    textTransform: "uppercase",
+    fontSize: 24,
     fontWeight: "bold",
-    fontSize: 20,
+    textTransform: "capitalize",
   },
 });
+
 export default FavouritePokemon;

@@ -1,10 +1,12 @@
 import React from "react";
 import { FlatList, Text } from "react-native";
+import useFavouritePokemon from "../hooks/useFavouritePokemon";
 import usePokemons from "../hooks/usePokemons";
 import PokemonCard from "./PokemonCard";
 
 const PokemonList = () => {
   const { data, loading, loadMore, hasNextPage } = usePokemons();
+  const { saveFavorite } = useFavouritePokemon();
 
   if (!data.length && loading) return <Text>Loading...</Text>;
 
@@ -27,7 +29,11 @@ const PokemonList = () => {
       <FlatList
         data={data}
         renderItem={({ item }) => (
-          <PokemonCard name={item.name} sprite={item.sprite} />
+          <PokemonCard
+            name={item.name}
+            sprite={item.sprite}
+            onSaveFavorite={() => saveFavorite(item)}
+          />
         )}
         keyExtractor={(item) => item.name}
         style={{ flex: 1 }}

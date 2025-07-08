@@ -5,25 +5,26 @@ import useFavouritePokemon from "../hooks/useFavouritePokemon";
 export type PokemonCardProps = {
   name: string;
   sprite: string;
+  onSaveFavorite: () => void;
 };
-const PokemonCard = ({ name, sprite }: PokemonCardProps) => {
+// export type PokemonCardProps = FavoritePokemon;
+
+const PokemonCard = ({ name, sprite, onSaveFavorite }: PokemonCardProps) => {
   // const liked = <FontAwesome size={25} name="heart" color={"red"} />;
   // const unliked = <FontAwesome size={25} name="heart-o" color={"black"} />;
-  const [like, setLike] = useState("💔");
   // const [like, setLike] = useState(unliked);
+  const [like, setLike] = useState("💔");
 
-  const { favPokemon, saveFavorite } = useFavouritePokemon();
+  const { saveFavorite } = useFavouritePokemon();
 
-  type Pokemon = {
-    name: string;
-    sprite: string;
-    type?: string[];
-  };
+  // type Pokemon = {
+  //   name: string;
+  //   sprite: string;
+  // };
 
   const handlePress = () => {
     setLike((prev) => (prev === "💔" ? "❤️" : "💔"));
-    // setLike((prev) => (prev === unliked ? liked : unliked));
-    saveFavorite({ name, sprite, type: [] });
+    onSaveFavorite();
   };
 
   return (
