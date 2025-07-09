@@ -1,41 +1,34 @@
-import React, { useState } from "react";
-import { Image, Pressable, StyleSheet, Text, View } from "react-native";
-import useFavouritePokemon from "../hooks/useFavouritePokemon";
+import React from "react";
+import { Image, StyleSheet, Text, View } from "react-native";
+import LikeButtton from "./LikeButton";
+// import useFavouritePokemon from "../hooks/useFavouritePokemon";
 
 export type PokemonCardProps = {
+  id: number;
   name: string;
   sprite: string;
   onSaveFavorite: () => void;
+  onRemoveFavorite: () => void;
 };
-// export type PokemonCardProps = FavoritePokemon;
 
-const PokemonCard = ({ name, sprite, onSaveFavorite }: PokemonCardProps) => {
-  // const liked = <FontAwesome size={25} name="heart" color={"red"} />;
-  // const unliked = <FontAwesome size={25} name="heart-o" color={"black"} />;
-  // const [like, setLike] = useState(unliked);
-  const [like, setLike] = useState("💔");
-
-  const { saveFavorite } = useFavouritePokemon();
-
-  // type Pokemon = {
-  //   name: string;
-  //   sprite: string;
-  // };
-
-  const handlePress = () => {
-    setLike((prev) => (prev === "💔" ? "❤️" : "💔"));
-    onSaveFavorite();
-  };
-
+const PokemonCard = ({
+  id,
+  name,
+  sprite,
+  onSaveFavorite,
+  onRemoveFavorite,
+}: PokemonCardProps) => {
   return (
     <View style={styles.pokemonContainer}>
       <View style={styles.item}>
         <Image source={{ uri: sprite }} style={styles.image} />
       </View>
       <View style={styles.likeItem}>
-        <Pressable onPress={() => handlePress()}>
-          <Text style={{ fontSize: 22 }}>{like}</Text>
-        </Pressable>
+        <LikeButtton
+          id={id}
+          onRemoveFavorite={onRemoveFavorite}
+          onSaveFavorite={onSaveFavorite}
+        />
       </View>
       <View style={styles.item}>
         <Text>{name}</Text>

@@ -6,7 +6,7 @@ import PokemonCard from "./PokemonCard";
 
 const PokemonList = () => {
   const { data, loading, loadMore, hasNextPage } = usePokemons();
-  const { saveFavorite } = useFavouritePokemon();
+  const { saveFavorite, removeFavorite } = useFavouritePokemon();
 
   if (!data.length && loading) return <Text>Loading...</Text>;
 
@@ -30,9 +30,11 @@ const PokemonList = () => {
         data={data}
         renderItem={({ item }) => (
           <PokemonCard
+            id={item.id}
             name={item.name}
             sprite={item.sprite}
             onSaveFavorite={() => saveFavorite(item)}
+            onRemoveFavorite={() => removeFavorite(item.id)}
           />
         )}
         keyExtractor={(item) => item.name}

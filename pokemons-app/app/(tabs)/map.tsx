@@ -1,5 +1,15 @@
 import React from "react";
 import { Text, View } from "react-native";
+// import Animated, {
+//   useSharedValue,
+//   useAnimatedStyle,
+//   useDerivedValue,
+//   withDelay,
+//   withTiming,
+// } from 'react-native-reanimated';
+
+// const isOpen = useSharedValue(false);
+// EXPO MAPS
 
 export default function Map() {
   return (
