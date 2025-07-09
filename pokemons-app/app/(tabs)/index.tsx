@@ -1,7 +1,7 @@
 import React from "react";
 import { StyleSheet, Text, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
-import PokemonList from "../components/PokemonList";
+import PokemonList from "../../components/PokemonList";
 
 export default function Home() {
   return (
