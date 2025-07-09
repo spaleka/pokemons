@@ -1,3 +1,4 @@
+import FontAwesome from "@expo/vector-icons/FontAwesome";
 import { useFocusEffect } from "@react-navigation/native";
 import React, { useCallback } from "react";
 import {
@@ -46,7 +47,7 @@ const FavouritePokemon = () => {
               {pokemon.abilities.map((a) => a.ability.name).join(", ")}
             </Text>
             <Pressable onPress={() => removeFavorite(pokemon.id)}>
-              <Text>💔</Text>
+              <FontAwesome size={28} name="trash" color="grey" />
             </Pressable>
           </View>
         ))}

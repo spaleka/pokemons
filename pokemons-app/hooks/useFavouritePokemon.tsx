@@ -68,10 +68,15 @@ const useFavoritePokemon = () => {
       const favKeys = allKeys.filter((key) => key.startsWith(STORAGE_PREFIX));
       await AsyncStorage.multiRemove(favKeys);
       setFavPokemon([]);
+      Object.keys(likedItems).forEach((id) => {
+        if (likedItems[id]) {
+          toggleLike(Number(id));
+        }
+      });
     } catch (e) {
       console.error("Failed to clear favorite Pokémon list", e);
     }
-  }, []);
+  }, [likedItems, toggleLike]);
 
   useEffect(() => {
     loadFavorite();

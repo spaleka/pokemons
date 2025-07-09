@@ -31,9 +31,17 @@
           <string>com.anonymous.pokemonsapp</string>
         </array>
       </dict>
+      <dict>
+        <key>CFBundleURLSchemes</key>
+        <array>
+          <string>exp+pokemons-app</string>
+        </array>
+      </dict>
     </array>
     <key>CFBundleVersion</key>
     <string>1</string>
+    <key>GMSApiKey</key>
+    <string>AIzaSyAIXgl0smEJdd4TX0hs_UezB3m4G4LPgwo</string>
     <key>LSMinimumSystemVersion</key>
     <string>12.0</string>
     <key>LSRequiresIPhoneOS</key>

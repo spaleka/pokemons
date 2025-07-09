@@ -1,6 +1,7 @@
 import { useLike } from "@/contexts/LikeContext";
+import FontAwesome from "@expo/vector-icons/FontAwesome";
 import React from "react";
-import { Pressable, Text } from "react-native";
+import { Pressable } from "react-native";
 
 type LikeButtonProps = {
   id: number;
@@ -15,7 +16,6 @@ export default function LikeButton({
 }: LikeButtonProps) {
   const { isLiked } = useLike();
   const liked = isLiked(id);
-  const like = liked ? "❤️" : "💔";
 
   const handlePress = () => {
     if (liked) {
@@ -27,7 +27,7 @@ export default function LikeButton({
 
   return (
     <Pressable onPress={handlePress}>
-      <Text style={{ fontSize: 22 }}>{like}</Text>
+      <FontAwesome size={28} name={liked ? "heart" : "heart-o"} color="red" />
     </Pressable>
   );
 }

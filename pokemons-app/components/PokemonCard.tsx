@@ -1,7 +1,6 @@
 import React from "react";
 import { Image, StyleSheet, Text, View } from "react-native";
 import LikeButtton from "./LikeButton";
-// import useFavouritePokemon from "../hooks/useFavouritePokemon";
 
 export type PokemonCardProps = {
   id: number;

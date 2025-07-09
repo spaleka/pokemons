@@ -10,7 +10,10 @@
     "newArchEnabled": true,
     "ios": {
       "supportsTablet": true,
-      "bundleIdentifier": "com.anonymous.pokemonsapp"
+      "bundleIdentifier": "com.anonymous.pokemonsapp",
+      "config": {
+        "googleMapsApiKey": "AIzaSyAIXgl0smEJdd4TX0hs_UezB3m4G4LPgwo"
+      }
     },
     "android": {
       "adaptiveIcon": {
@@ -18,27 +21,41 @@
         "backgroundColor": "#ffffff"
       },
       "edgeToEdgeEnabled": true,
-      "package": "com.anonymous.pokemonsapp"
-    },
-    "web": {
-      "bundler": "metro",
-      "output": "static",
-      "favicon": "./assets/images/favicon.png"
+      "package": "com.anonymous.pokemonsapp",
+      "config": {
+        "googleMaps": {
+          "apiKey": "AIzaSyAIXgl0smEJdd4TX0hs_UezB3m4G4LPgwo"
+        }
+      }
     },
     "plugins": [
-      "expo-router",
-      [
-        "expo-splash-screen",
-        {
-          "image": "./assets/images/splash-icon.png",
-          "imageWidth": 200,
-          "resizeMode": "contain",
-          "backgroundColor": "#ffffff"
-        }
-      ]
-    ],
-    "experiments": {
-      "typedRoutes": true
+      "expo-maps"
+    ]
+  },
+  "web": {
+    "bundler": "metro",
+    "output": "static",
+    "favicon": "./assets/images/favicon.png"
+  },
+  "plugins": [
+    "expo-router",
+    [
+      "expo-splash-screen",
+      {
+        "image": "./assets/images/splash-icon.png",
+        "imageWidth": 200,
+        "resizeMode": "contain",
+        "backgroundColor": "#ffffff"
+      }
+    ]
+  ],
+  "experiments": {
+    "typedRoutes": true
+  },
+  "extra": {
+    "router": {},
+    "eas": {
+      "projectId": "8761943f-da72-4f0f-b500-eb8ad8202595"
     }
   }
 }
