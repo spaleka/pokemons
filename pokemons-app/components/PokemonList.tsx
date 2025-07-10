@@ -1,3 +1,4 @@
+import { usePokemonSelection } from "@/contexts/PokemonSelectedContext";
 import React from "react";
 import { FlatList, Text } from "react-native";
 import useFavouritePokemon from "../hooks/useFavouritePokemon";
@@ -7,6 +8,7 @@ import PokemonCard from "./PokemonCard";
 const PokemonList = () => {
   const { data, loading, loadMore, hasNextPage } = usePokemons();
   const { saveFavorite, removeFavorite } = useFavouritePokemon();
+  const { openBottomSheet } = usePokemonSelection();
 
   if (!data.length && loading) return <Text>Loading...</Text>;
 
@@ -35,6 +37,7 @@ const PokemonList = () => {
             sprite={item.sprite}
             onSaveFavorite={() => saveFavorite(item)}
             onRemoveFavorite={() => removeFavorite(item.id)}
+            onPress={() => openBottomSheet(item)}
           />
         )}
         keyExtractor={(item) => item.name}

@@ -1,5 +1,5 @@
 import React from "react";
-import { Image, StyleSheet, Text, View } from "react-native";
+import { Image, Pressable, StyleSheet, Text, View } from "react-native";
 import LikeButtton from "./LikeButton";
 
 export type PokemonCardProps = {
@@ -8,6 +8,7 @@ export type PokemonCardProps = {
   sprite: string;
   onSaveFavorite: () => void;
   onRemoveFavorite: () => void;
+  onPress?: () => void;
 };
 
 const PokemonCard = ({
@@ -16,9 +17,10 @@ const PokemonCard = ({
   sprite,
   onSaveFavorite,
   onRemoveFavorite,
+  onPress,
 }: PokemonCardProps) => {
   return (
-    <View style={styles.pokemonContainer}>
+    <Pressable onPress={onPress} style={styles.pokemonContainer}>
       <View style={styles.item}>
         <Image source={{ uri: sprite }} style={styles.image} />
       </View>
@@ -27,12 +29,13 @@ const PokemonCard = ({
           id={id}
           onRemoveFavorite={onRemoveFavorite}
           onSaveFavorite={onSaveFavorite}
+          stopPropagation={true}
         />
       </View>
       <View style={styles.item}>
-        <Text>{name}</Text>
+        <Text style={styles.pokemonName}>{name}</Text>
       </View>
-    </View>
+    </Pressable>
   );
 };
 const styles = StyleSheet.create({
@@ -58,6 +61,10 @@ const styles = StyleSheet.create({
   image: {
     width: 50,
     height: 50,
+  },
+  pokemonName: {
+    fontSize: 13,
+    textTransform: "uppercase",
   },
 });
 

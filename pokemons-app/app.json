@@ -29,33 +29,31 @@
       }
     },
     "plugins": [
-      "expo-maps"
-    ]
-  },
-  "web": {
-    "bundler": "metro",
-    "output": "static",
-    "favicon": "./assets/images/favicon.png"
-  },
-  "plugins": [
-    "expo-router",
-    [
-      "expo-splash-screen",
-      {
-        "image": "./assets/images/splash-icon.png",
-        "imageWidth": 200,
-        "resizeMode": "contain",
-        "backgroundColor": "#ffffff"
+      "expo-maps",
+      "expo-router",
+      [
+        "expo-splash-screen",
+        {
+          "image": "./assets/images/splash-icon.png",
+          "imageWidth": 200,
+          "resizeMode": "contain",
+          "backgroundColor": "#ffffff"
+        }
+      ]
+    ],
+    "web": {
+      "bundler": "metro",
+      "output": "static",
+      "favicon": "./assets/images/favicon.png"
+    },
+    "experiments": {
+      "typedRoutes": true
+    },
+    "extra": {
+      "router": {},
+      "eas": {
+        "projectId": "8761943f-da72-4f0f-b500-eb8ad8202595"
       }
-    ]
-  ],
-  "experiments": {
-    "typedRoutes": true
-  },
-  "extra": {
-    "router": {},
-    "eas": {
-      "projectId": "8761943f-da72-4f0f-b500-eb8ad8202595"
     }
   }
 }
