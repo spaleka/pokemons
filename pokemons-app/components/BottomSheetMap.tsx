@@ -24,7 +24,7 @@ const BottomSheetMap = () => {
           contentContainerStyle={styles.sheetContent}
         /> */}
         {/* <PokemonList /> */}
-        <Text style={styles.title}>Bottom Sheet Example</Text>
+        <Text style={styles.title}>Bottom Sheet Map</Text>
       </BottomSheet>
     </>
   );

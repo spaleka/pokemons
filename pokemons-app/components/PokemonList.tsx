@@ -1,16 +1,24 @@
 import { usePokemonSelection } from "@/contexts/PokemonSelectedContext";
+import { useRouter } from "expo-router";
 import React from "react";
 import { FlatList, Text } from "react-native";
 import useFavouritePokemon from "../hooks/useFavouritePokemon";
-import usePokemons from "../hooks/usePokemons";
+import usePokemons, { PokemonListItem } from "../hooks/usePokemons";
 import PokemonCard from "./PokemonCard";
 
 const PokemonList = () => {
   const { data, loading, loadMore, hasNextPage } = usePokemons();
   const { saveFavorite, removeFavorite } = useFavouritePokemon();
-  const { openBottomSheet } = usePokemonSelection();
+  // const { openBottomSheet } = usePokemonSelection();
+  const { selectPokemon } = usePokemonSelection();
+  const router = useRouter();
+  type Pokemon = PokemonListItem;
 
   if (!data.length && loading) return <Text>Loading...</Text>;
+  const onPressItem = (pokemon: Pokemon) => {
+    selectPokemon(pokemon);
+    router.push("/modals/modalHome");
+  };
 
   return (
     <>
@@ -37,7 +45,8 @@ const PokemonList = () => {
             sprite={item.sprite}
             onSaveFavorite={() => saveFavorite(item)}
             onRemoveFavorite={() => removeFavorite(item.id)}
-            onPress={() => openBottomSheet(item)}
+            // onPress={() => openBottomSheet(item)}
+            onPress={() => onPressItem(item)}
           />
         )}
         keyExtractor={(item) => item.name}
