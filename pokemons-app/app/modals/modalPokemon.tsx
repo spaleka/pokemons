@@ -1,28 +1,37 @@
 import PokemonDetails from "@/components/PokemonDetails";
+import { usePokemonPins } from "@/contexts/PinPokemonContext";
 import { useLocalSearchParams, useRouter } from "expo-router";
 import React from "react";
-import { StyleSheet, Text, View } from "react-native";
+import { Pressable, StyleSheet, Text, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 
 export default function ModalPokemon() {
   const router = useRouter();
-  const { id, name, sprite, types, abilities } = useLocalSearchParams<{
+  const { id, name, sprite, types, abilities, pinId } = useLocalSearchParams<{
     id: string;
     name: string;
     sprite: string;
     types?: string;
     abilities?: string;
+    pinId: string;
   }>();
 
   const numericId = id && !isNaN(Number(id)) ? Number(id) : 0;
   const typesArray = typeof types === "string" ? types.split(",") : types ?? [];
   const abilitiesArray =
     typeof abilities === "string" ? abilities.split(",") : abilities ?? [];
+  const { removePin } = usePokemonPins();
+
+  const handleRemove = () => {
+    if (!pinId || Array.isArray(pinId)) return;
+    removePin(pinId);
+    router.back();
+  };
 
   return (
     <SafeAreaView>
       <View>
-        <Text onPress={() => router.back()} style={styles.removeBtn}>
+        <Text onPress={() => router.back()} style={styles.closeBtn}>
           X
         </Text>
       </View>
@@ -38,6 +47,9 @@ export default function ModalPokemon() {
           showButton={false}
         />
       </View>
+      <Pressable onPress={() => handleRemove(id)}>
+        <Text style={styles.closeBtn}>Remove pin</Text>
+      </Pressable>
     </SafeAreaView>
   );
 }
@@ -48,7 +60,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
   },
-  removeBtn: {
+  closeBtn: {
     fontSize: 18,
     textAlign: "right",
     padding: 15,

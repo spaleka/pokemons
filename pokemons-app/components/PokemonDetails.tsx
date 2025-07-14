@@ -65,7 +65,7 @@ const styles = StyleSheet.create({
     width: 200,
     height: 200,
   },
-  removeBtn: {
+  closeBtn: {
     fontSize: 10,
     color: "red",
     textAlign: "right",

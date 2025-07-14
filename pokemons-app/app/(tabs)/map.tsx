@@ -52,6 +52,7 @@ export default function Map() {
           abilities: matchingPin.pokemon.abilities
             .map((t) => t.ability.name)
             .join(","),
+          pinId: matchingPin.id,
         },
       });
       console.log(matchingPin.pokemon.types);

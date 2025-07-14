@@ -17,7 +17,7 @@ export default function ModalHome() {
   return (
     <SafeAreaView>
       <View>
-        <Text onPress={() => router.back()} style={styles.removeBtn}>
+        <Text onPress={() => router.back()} style={styles.closeBtn}>
           X
         </Text>
       </View>
@@ -43,7 +43,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
   },
-  removeBtn: {
+  closeBtn: {
     fontSize: 18,
     textAlign: "right",
     padding: 15,

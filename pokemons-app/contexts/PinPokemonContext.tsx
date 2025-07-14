@@ -17,6 +17,7 @@ type Pin = {
 type ContextType = {
   pins: Pin[];
   addPin: (pin: Pin) => void;
+  removePin: (id: string) => void;
 };
 
 const PinPokemonContext = createContext<ContextType | undefined>(undefined);
@@ -30,8 +31,12 @@ export const PokemonPinsProvider: FC<{
     setPins((prev) => [...prev, pin]);
   };
 
+  const removePin = (id: string) => {
+    setPins((prev) => prev.filter((pin) => pin.id !== id));
+  };
+
   return (
-    <PinPokemonContext.Provider value={{ pins, addPin }}>
+    <PinPokemonContext.Provider value={{ pins, addPin, removePin }}>
       {children}
     </PinPokemonContext.Provider>
   );

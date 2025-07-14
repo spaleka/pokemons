@@ -28,7 +28,7 @@ export default function ModalMap() {
   return (
     <SafeAreaView style={{ flex: 1 }}>
       <View>
-        <Text onPress={() => router.back()} style={styles.removeBtn}>
+        <Text onPress={() => router.back()} style={styles.closeBtn}>
           X
         </Text>
         <Text style={styles.title}>CHOOSE POKEMON TO PIN</Text>
@@ -39,7 +39,7 @@ export default function ModalMap() {
 }
 
 const styles = StyleSheet.create({
-  removeBtn: {
+  closeBtn: {
     fontSize: 18,
     textAlign: "right",
     padding: 15,
