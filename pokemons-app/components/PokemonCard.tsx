@@ -9,6 +9,7 @@ export type PokemonCardProps = {
   onSaveFavorite: () => void;
   onRemoveFavorite: () => void;
   onPress?: () => void;
+  showButton?: boolean;
 };
 
 const PokemonCard = ({
@@ -18,6 +19,7 @@ const PokemonCard = ({
   onSaveFavorite,
   onRemoveFavorite,
   onPress,
+  showButton = true,
 }: PokemonCardProps) => {
   return (
     <Pressable onPress={onPress} style={styles.pokemonContainer}>
@@ -25,12 +27,14 @@ const PokemonCard = ({
         <Image source={{ uri: sprite }} style={styles.image} />
       </View>
       <View style={styles.likeItem}>
-        <LikeButtton
-          id={id}
-          onRemoveFavorite={onRemoveFavorite}
-          onSaveFavorite={onSaveFavorite}
-          stopPropagation={true}
-        />
+        {showButton && (
+          <LikeButtton
+            id={id}
+            onRemoveFavorite={onRemoveFavorite}
+            onSaveFavorite={onSaveFavorite}
+            stopPropagation={true}
+          />
+        )}
       </View>
       <View style={styles.item}>
         <Text style={styles.pokemonName}>{name}</Text>

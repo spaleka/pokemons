@@ -1,39 +1,52 @@
-import { useRouter } from "expo-router";
-import { StyleSheet, Text } from "react-native";
+import MapSimpleList from "@/components/MapSimpleList";
+import { usePokemonPins } from "@/contexts/PinPokemonContext";
+import { PokemonListItem } from "@/hooks/usePokemons";
+import { useLocalSearchParams, useRouter } from "expo-router";
+import { StyleSheet, Text, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 
 export default function ModalMap() {
   const router = useRouter();
-  // const { selectedPokemon } = usePokemonSelection();
-  // const { saveFavorite, removeFavorite } = useFavoritePokemon();
+  const { addPin } = usePokemonPins();
+  const { lat, lng } = useLocalSearchParams();
 
-  // if (!selectedPokemon) {
-  //   return null;
-  // }
+  const handleSelect = (pokemon: PokemonListItem) => {
+    const coordinate = {
+      latitude: parseFloat(lat as string),
+      longitude: parseFloat(lng as string),
+    };
+
+    addPin({
+      id: Math.random().toString(),
+      pokemon,
+      coordinate,
+    });
+
+    router.back();
+  };
 
   return (
-    <SafeAreaView style={styles.container}>
-      <Text onPress={() => router.back()}>X</Text>
-
-      {/* <PokemonDetails
-        id={selectedPokemon.id}
-        name={selectedPokemon.name}
-        sprite={selectedPokemon.sprite}
-        types={selectedPokemon.types.map((t) => t.type.name)}
-        abilities={selectedPokemon.abilities.map((a) => a.ability.name)}
-        onSaveFavorite={() => saveFavorite(selectedPokemon)}
-        onRemoveFavorite={() => removeFavorite(selectedPokemon.id)}
-      /> */}
-
-      <Text> MAP MODAL!!!!!!!</Text>
+    <SafeAreaView style={{ flex: 1 }}>
+      <View>
+        <Text onPress={() => router.back()} style={styles.removeBtn}>
+          X
+        </Text>
+        <Text style={styles.title}>CHOOSE POKEMON TO PIN</Text>
+      </View>
+      <MapSimpleList onSelect={handleSelect} />
     </SafeAreaView>
   );
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    alignItems: "center",
-    justifyContent: "center",
+  removeBtn: {
+    fontSize: 18,
+    textAlign: "right",
+    padding: 15,
+  },
+  title: {
+    fontSize: 16,
+    textAlign: "center",
+    marginBottom: 10,
   },
 });

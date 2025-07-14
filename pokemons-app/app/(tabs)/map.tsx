@@ -1,6 +1,7 @@
+import { usePokemonPins } from "@/contexts/PinPokemonContext";
 import { useRouter } from "expo-router";
-import React, { useState } from "react";
-import { StyleSheet, View } from "react-native";
+import React from "react";
+import { Alert, StyleSheet, View } from "react-native";
 import { GestureHandlerRootView } from "react-native-gesture-handler";
 import MapView, {
   LongPressEvent,
@@ -10,8 +11,6 @@ import MapView, {
 } from "react-native-maps";
 
 export default function Map() {
-  // const latitude = 50.05472;
-  // const longitude = 19.942983;
   const INITIAL_REGION = {
     latitude: 50.05472,
     longitude: 19.942983,
@@ -19,22 +18,42 @@ export default function Map() {
     longitudeDelta: 0.0421,
   };
   const router = useRouter();
-
-  const [markers, setMarkers] = useState<
-    { latitude: number; longitude: number }[]
-  >([]);
+  const { pins } = usePokemonPins();
 
   const handleMapPress = (event: LongPressEvent) => {
     const { coordinate } = event.nativeEvent;
-    setMarkers((prev) => [...prev, coordinate]);
+
+    router.push({
+      pathname: "/modals/modalMap",
+      params: {
+        lat: coordinate.latitude.toString(),
+        lng: coordinate.longitude.toString(),
+      },
+    });
   };
 
   const handleMarkerPress = (event: MarkerPressEvent) => {
+    const { latitude, longitude } = event.nativeEvent.coordinate;
+
+    const matchingPin = pins.find(
+      (pin) =>
+        pin.coordinate.latitude === latitude &&
+        pin.coordinate.longitude === longitude
+    );
+
+    if (matchingPin) {
+      Alert.alert(
+        "You clicked a Pokémon!",
+        `Name: ${matchingPin.pokemon.name}`
+      );
+    } else {
+      Alert.alert("Marker Pressed", `Unknown pin at ${latitude}, ${longitude}`);
+    }
     // Alert.alert(
     //   "Marker Pressed",
     //   `You pressed a marker at latitude: ${event.nativeEvent.coordinate.latitude}, longitude: ${event.nativeEvent.coordinate.longitude}`
     // );
-    router.push("/modals/modalMap");
+    // router.push("/modals/modalMap");
   };
 
   return (
@@ -49,13 +68,10 @@ export default function Map() {
           onLongPress={handleMapPress}
           onMarkerPress={handleMarkerPress}
         >
-          {markers.map((marker, index) => (
+          {pins.map((pin) => (
             <Marker
-              key={index}
-              coordinate={{
-                latitude: marker.latitude,
-                longitude: marker.longitude,
-              }}
+              key={pin.id}
+              coordinate={pin.coordinate}
               image={{
                 uri: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/poke-ball.png",
               }}
