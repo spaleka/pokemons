@@ -10,6 +10,7 @@ type PokemonDetailsProps = {
   abilities: string[];
   onSaveFavorite: () => void;
   onRemoveFavorite: () => void;
+  showButton?: boolean;
 };
 
 const PokemonDetails = ({
@@ -20,6 +21,7 @@ const PokemonDetails = ({
   abilities,
   onRemoveFavorite,
   onSaveFavorite,
+  showButton = true,
 }: PokemonDetailsProps) => {
   return (
     <>
@@ -29,12 +31,14 @@ const PokemonDetails = ({
           <Text style={styles.nameItem}>{name}</Text>
           <Text>Type: {types?.join(", ")}</Text>
           <Text>Abilities: {abilities?.join(", ")}</Text>
-          <LikeButtton
-            id={id}
-            onRemoveFavorite={onRemoveFavorite}
-            onSaveFavorite={onSaveFavorite}
-            stopPropagation={true}
-          />
+          {showButton && (
+            <LikeButtton
+              id={id}
+              onRemoveFavorite={onRemoveFavorite}
+              onSaveFavorite={onSaveFavorite}
+              stopPropagation={true}
+            />
+          )}
         </View>
       </ScrollView>
     </>

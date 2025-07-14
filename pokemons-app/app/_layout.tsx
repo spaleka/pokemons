@@ -24,6 +24,13 @@ export default function Layout() {
                 headerShown: false,
               }}
             />
+            <Stack.Screen
+              name="modals/modalPokemon"
+              options={{
+                presentation: "modal",
+                headerShown: false,
+              }}
+            />
           </Stack>
         </LikeProvider>
       </PokemonPinsProvider>

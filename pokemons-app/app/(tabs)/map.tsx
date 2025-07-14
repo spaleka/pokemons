@@ -42,18 +42,22 @@ export default function Map() {
     );
 
     if (matchingPin) {
-      Alert.alert(
-        "You clicked a Pokémon!",
-        `Name: ${matchingPin.pokemon.name}`
-      );
+      router.push({
+        pathname: "/modals/modalPokemon",
+        params: {
+          id: matchingPin.pokemon.id.toString(),
+          name: matchingPin.pokemon.name,
+          sprite: matchingPin.pokemon.sprite,
+          types: matchingPin.pokemon.types.map((t) => t.type.name).join(","),
+          abilities: matchingPin.pokemon.abilities
+            .map((t) => t.ability.name)
+            .join(","),
+        },
+      });
+      console.log(matchingPin.pokemon.types);
     } else {
       Alert.alert("Marker Pressed", `Unknown pin at ${latitude}, ${longitude}`);
     }
-    // Alert.alert(
-    //   "Marker Pressed",
-    //   `You pressed a marker at latitude: ${event.nativeEvent.coordinate.latitude}, longitude: ${event.nativeEvent.coordinate.longitude}`
-    // );
-    // router.push("/modals/modalMap");
   };
 
   return (
@@ -72,8 +76,9 @@ export default function Map() {
             <Marker
               key={pin.id}
               coordinate={pin.coordinate}
+              anchor={{ x: 0.5, y: 0.5 }}
               image={{
-                uri: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/poke-ball.png",
+                uri: pin.pokemon.sprite,
               }}
             />
           ))}

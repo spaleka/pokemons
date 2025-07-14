@@ -30,6 +30,7 @@ export default function ModalHome() {
           abilities={selectedPokemon.abilities.map((a) => a.ability.name)}
           onSaveFavorite={() => saveFavorite(selectedPokemon)}
           onRemoveFavorite={() => removeFavorite(selectedPokemon.id)}
+          showButton
         />
       </View>
     </SafeAreaView>

@@ -1,4 +1,4 @@
-import MapSimpleList from "@/components/MapSimpleList";
+import MapList from "@/components/MapList";
 import { usePokemonPins } from "@/contexts/PinPokemonContext";
 import { PokemonListItem } from "@/hooks/usePokemons";
 import { useLocalSearchParams, useRouter } from "expo-router";
@@ -33,7 +33,7 @@ export default function ModalMap() {
         </Text>
         <Text style={styles.title}>CHOOSE POKEMON TO PIN</Text>
       </View>
-      <MapSimpleList onSelect={handleSelect} />
+      <MapList onSelect={handleSelect} />
     </SafeAreaView>
   );
 }
