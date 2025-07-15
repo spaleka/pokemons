@@ -8,6 +8,12 @@
     "scheme": "pokemonsapp",
     "userInterfaceStyle": "automatic",
     "newArchEnabled": true,
+     "splash": {
+      "image": "./assets/images/splash-icon.png",
+      "resizeMode": "contain",
+      "imageWidth": 200,
+      "backgroundColor": "#ffffff"
+    },
     "ios": {
       "supportsTablet": true,
       "bundleIdentifier": "com.anonymous.pokemonsapp",
@@ -32,14 +38,11 @@
       "expo-maps",
       "expo-router",
       [
-        "expo-splash-screen",
-        {
-          "image": "./assets/images/splash-icon.png",
-          "imageWidth": 200,
-          "resizeMode": "contain",
-          "backgroundColor": "#ffffff"
-        }
-      ]
+      "react-native-vision-camera",
+      {
+        "cameraPermissionText": "pokemonsapp needs access to your Camera."
+      }
+    ]
     ],
     "web": {
       "bundler": "metro",

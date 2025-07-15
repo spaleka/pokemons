@@ -34,6 +34,16 @@ export default function Layout() {
           ),
         }}
       />
+      <Tabs.Screen
+        name="camera"
+        options={{
+          headerShown: false,
+          title: "Camera",
+          tabBarIcon: ({ color }) => (
+            <FontAwesome size={28} name="camera" color={color} />
+          ),
+        }}
+      />
     </Tabs>
   );
 }

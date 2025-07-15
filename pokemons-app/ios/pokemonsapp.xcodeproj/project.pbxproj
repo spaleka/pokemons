@@ -9,10 +9,10 @@
 /* Begin PBXBuildFile section */
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		3E461D99554A48A4959DE609 /* SplashScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AA286B85B6C04FC6940260E9 /* SplashScreen.storyboard */; };
-		3EA699C441E0AADA9329DF51 /* libPods-pokemonsapp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F262E57636328764B8D0E5A /* libPods-pokemonsapp.a */; };
-		816BEBA452924643B0575AE3 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = FF9C7BE44F11BC098A61854D /* PrivacyInfo.xcprivacy */; };
+		6775045DBC5DA57DE47D8181 /* libPods-pokemonsapp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EDE1EF5B2E10EC6B4D1DADA3 /* libPods-pokemonsapp.a */; };
+		9075B67A3391A2DF7A8F2BF2 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = E4F5EF936164054585D6A7E5 /* PrivacyInfo.xcprivacy */; };
 		BB2F792D24A3F905000567C9 /* Expo.plist in Resources */ = {isa = PBXBuildFile; fileRef = BB2F792C24A3F905000567C9 /* Expo.plist */; };
-		C217429B33C669C49ED4C8CA /* ExpoModulesProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24776A538D89D79C3844072E /* ExpoModulesProvider.swift */; };
+		E5B9710E016F6000A344BE04 /* ExpoModulesProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8029812105A306ED0AF58EFA /* ExpoModulesProvider.swift */; };
 		F11748422D0307B40044C1D9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F11748412D0307B40044C1D9 /* AppDelegate.swift */; };
 /* End PBXBuildFile section */
 
@@ -20,16 +20,16 @@
 		13B07F961A680F5B00A75B9A /* pokemonsapp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = pokemonsapp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = pokemonsapp/Images.xcassets; sourceTree = "<group>"; };
 		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = pokemonsapp/Info.plist; sourceTree = "<group>"; };
-		1C0FABF02EEE55B94260B7AF /* Pods-pokemonsapp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-pokemonsapp.debug.xcconfig"; path = "Target Support Files/Pods-pokemonsapp/Pods-pokemonsapp.debug.xcconfig"; sourceTree = "<group>"; };
-		24776A538D89D79C3844072E /* ExpoModulesProvider.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ExpoModulesProvider.swift; path = "Pods/Target Support Files/Pods-pokemonsapp/ExpoModulesProvider.swift"; sourceTree = "<group>"; };
-		4F262E57636328764B8D0E5A /* libPods-pokemonsapp.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-pokemonsapp.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		576AE7B8872F61844DF63376 /* Pods-pokemonsapp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-pokemonsapp.release.xcconfig"; path = "Target Support Files/Pods-pokemonsapp/Pods-pokemonsapp.release.xcconfig"; sourceTree = "<group>"; };
+		5BE85FB6C3401108AF9DE738 /* Pods-pokemonsapp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-pokemonsapp.release.xcconfig"; path = "Target Support Files/Pods-pokemonsapp/Pods-pokemonsapp.release.xcconfig"; sourceTree = "<group>"; };
+		8029812105A306ED0AF58EFA /* ExpoModulesProvider.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ExpoModulesProvider.swift; path = "Pods/Target Support Files/Pods-pokemonsapp/ExpoModulesProvider.swift"; sourceTree = "<group>"; };
 		AA286B85B6C04FC6940260E9 /* SplashScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = SplashScreen.storyboard; path = pokemonsapp/SplashScreen.storyboard; sourceTree = "<group>"; };
 		BB2F792C24A3F905000567C9 /* Expo.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Expo.plist; sourceTree = "<group>"; };
+		E4F5EF936164054585D6A7E5 /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xml; name = PrivacyInfo.xcprivacy; path = pokemonsapp/PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
+		EDE1EF5B2E10EC6B4D1DADA3 /* libPods-pokemonsapp.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-pokemonsapp.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F11748412D0307B40044C1D9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = pokemonsapp/AppDelegate.swift; sourceTree = "<group>"; };
 		F11748442D0722820044C1D9 /* pokemonsapp-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "pokemonsapp-Bridging-Header.h"; path = "pokemonsapp/pokemonsapp-Bridging-Header.h"; sourceTree = "<group>"; };
-		FF9C7BE44F11BC098A61854D /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xml; name = PrivacyInfo.xcprivacy; path = pokemonsapp/PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
+		FF885F7BE4CD5134C7E58DAE /* Pods-pokemonsapp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-pokemonsapp.debug.xcconfig"; path = "Target Support Files/Pods-pokemonsapp/Pods-pokemonsapp.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -37,13 +37,22 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3EA699C441E0AADA9329DF51 /* libPods-pokemonsapp.a in Frameworks */,
+				6775045DBC5DA57DE47D8181 /* libPods-pokemonsapp.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0D665F5D91E7228E5B6C6E0C /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				FF885F7BE4CD5134C7E58DAE /* Pods-pokemonsapp.debug.xcconfig */,
+				5BE85FB6C3401108AF9DE738 /* Pods-pokemonsapp.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		13B07FAE1A68108700A75B9A /* pokemonsapp */ = {
 			isa = PBXGroup;
 			children = (
@@ -53,7 +62,7 @@
 				13B07FB51A68108700A75B9A /* Images.xcassets */,
 				13B07FB61A68108700A75B9A /* Info.plist */,
 				AA286B85B6C04FC6940260E9 /* SplashScreen.storyboard */,
-				FF9C7BE44F11BC098A61854D /* PrivacyInfo.xcprivacy */,
+				E4F5EF936164054585D6A7E5 /* PrivacyInfo.xcprivacy */,
 			);
 			name = pokemonsapp;
 			sourceTree = "<group>";
@@ -62,26 +71,9 @@
 			isa = PBXGroup;
 			children = (
 				ED297162215061F000B7C4FE /* JavaScriptCore.framework */,
-				4F262E57636328764B8D0E5A /* libPods-pokemonsapp.a */,
+				EDE1EF5B2E10EC6B4D1DADA3 /* libPods-pokemonsapp.a */,
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		579529F803E3B3DCC4F02680 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				1C0FABF02EEE55B94260B7AF /* Pods-pokemonsapp.debug.xcconfig */,
-				576AE7B8872F61844DF63376 /* Pods-pokemonsapp.release.xcconfig */,
-			);
-			path = Pods;
-			sourceTree = "<group>";
-		};
-		6F3539FDF715184E2CF407DE /* ExpoModulesProviders */ = {
-			isa = PBXGroup;
-			children = (
-				F886688CDF2743D50DDE27E9 /* pokemonsapp */,
-			);
-			name = ExpoModulesProviders;
 			sourceTree = "<group>";
 		};
 		832341AE1AAA6A7D00B99B32 /* Libraries */ = {
@@ -98,8 +90,8 @@
 				832341AE1AAA6A7D00B99B32 /* Libraries */,
 				83CBBA001A601CBA00E9B192 /* Products */,
 				2D16E6871FA4F8E400B85C8A /* Frameworks */,
-				579529F803E3B3DCC4F02680 /* Pods */,
-				6F3539FDF715184E2CF407DE /* ExpoModulesProviders */,
+				0D665F5D91E7228E5B6C6E0C /* Pods */,
+				CD6A0212778257B64D2FBCF6 /* ExpoModulesProviders */,
 			);
 			indentWidth = 2;
 			sourceTree = "<group>";
@@ -123,10 +115,18 @@
 			path = pokemonsapp/Supporting;
 			sourceTree = "<group>";
 		};
-		F886688CDF2743D50DDE27E9 /* pokemonsapp */ = {
+		CD6A0212778257B64D2FBCF6 /* ExpoModulesProviders */ = {
 			isa = PBXGroup;
 			children = (
-				24776A538D89D79C3844072E /* ExpoModulesProvider.swift */,
+				F9FBCBDF68537997B6D48E0C /* pokemonsapp */,
+			);
+			name = ExpoModulesProviders;
+			sourceTree = "<group>";
+		};
+		F9FBCBDF68537997B6D48E0C /* pokemonsapp */ = {
+			isa = PBXGroup;
+			children = (
+				8029812105A306ED0AF58EFA /* ExpoModulesProvider.swift */,
 			);
 			name = pokemonsapp;
 			sourceTree = "<group>";
@@ -139,13 +139,13 @@
 			buildConfigurationList = 13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "pokemonsapp" */;
 			buildPhases = (
 				08A4A3CD28434E44B6B9DE2E /* [CP] Check Pods Manifest.lock */,
-				02B307541225D739362E91AB /* [Expo] Configure project */,
+				476DC0B28992AC2F2486C463 /* [Expo] Configure project */,
 				13B07F871A680F5B00A75B9A /* Sources */,
 				13B07F8C1A680F5B00A75B9A /* Frameworks */,
 				13B07F8E1A680F5B00A75B9A /* Resources */,
 				00DD1BFF1BD5951E006B06BC /* Bundle React Native code and images */,
 				800E24972A6A228C8D4807E9 /* [CP] Copy Pods Resources */,
-				DEA3989DAEFBDAA85E3FCC41 /* [CP] Embed Pods Frameworks */,
+				4CBE9563FB5AF6350232F3AC /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -195,7 +195,7 @@
 				BB2F792D24A3F905000567C9 /* Expo.plist in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 				3E461D99554A48A4959DE609 /* SplashScreen.storyboard in Resources */,
-				816BEBA452924643B0575AE3 /* PrivacyInfo.xcprivacy in Resources */,
+				9075B67A3391A2DF7A8F2BF2 /* PrivacyInfo.xcprivacy in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -217,25 +217,6 @@
 			shellPath = /bin/sh;
 			shellScript = "if [[ -f \"$PODS_ROOT/../.xcode.env\" ]]; then\n  source \"$PODS_ROOT/../.xcode.env\"\nfi\nif [[ -f \"$PODS_ROOT/../.xcode.env.local\" ]]; then\n  source \"$PODS_ROOT/../.xcode.env.local\"\nfi\n\n# The project root by default is one level up from the ios directory\nexport PROJECT_ROOT=\"$PROJECT_DIR\"/..\n\nif [[ \"$CONFIGURATION\" = *Debug* ]]; then\n  export SKIP_BUNDLING=1\nfi\nif [[ -z \"$ENTRY_FILE\" ]]; then\n  # Set the entry JS file using the bundler's entry resolution.\n  export ENTRY_FILE=\"$(\"$NODE_BINARY\" -e \"require('expo/scripts/resolveAppEntry')\" \"$PROJECT_ROOT\" ios absolute | tail -n 1)\"\nfi\n\nif [[ -z \"$CLI_PATH\" ]]; then\n  # Use Expo CLI\n  export CLI_PATH=\"$(\"$NODE_BINARY\" --print \"require.resolve('@expo/cli', { paths: [require.resolve('expo/package.json')] })\")\"\nfi\nif [[ -z \"$BUNDLE_COMMAND\" ]]; then\n  # Default Expo CLI command for bundling\n  export BUNDLE_COMMAND=\"export:embed\"\nfi\n\n# Source .xcode.env.updates if it exists to allow\n# SKIP_BUNDLING to be unset if needed\nif [[ -f \"$PODS_ROOT/../.xcode.env.updates\" ]]; then\n  source \"$PODS_ROOT/../.xcode.env.updates\"\nfi\n# Source local changes to allow overrides\n# if needed\nif [[ -f \"$PODS_ROOT/../.xcode.env.local\" ]]; then\n  source \"$PODS_ROOT/../.xcode.env.local\"\nfi\n\n`\"$NODE_BINARY\" --print \"require('path').dirname(require.resolve('react-native/package.json')) + '/scripts/react-native-xcode.sh'\"`\n\n";
 		};
-		02B307541225D739362E91AB /* [Expo] Configure project */ = {
-			isa = PBXShellScriptBuildPhase;
-			alwaysOutOfDate = 1;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-			);
-			name = "[Expo] Configure project";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "# This script configures Expo modules and generates the modules provider file.\nbash -l -c \"./Pods/Target\\ Support\\ Files/Pods-pokemonsapp/expo-configure-project.sh\"\n";
-		};
 		08A4A3CD28434E44B6B9DE2E /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -256,6 +237,43 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		476DC0B28992AC2F2486C463 /* [Expo] Configure project */ = {
+			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "[Expo] Configure project";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# This script configures Expo modules and generates the modules provider file.\nbash -l -c \"./Pods/Target\\ Support\\ Files/Pods-pokemonsapp/expo-configure-project.sh\"\n";
+		};
+		4CBE9563FB5AF6350232F3AC /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-pokemonsapp/Pods-pokemonsapp-frameworks.sh",
+				"${PODS_XCFRAMEWORKS_BUILD_DIR}/hermes-engine/Pre-built/hermes.framework/hermes",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/hermes.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-pokemonsapp/Pods-pokemonsapp-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		800E24972A6A228C8D4807E9 /* [CP] Copy Pods Resources */ = {
@@ -306,24 +324,6 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-pokemonsapp/Pods-pokemonsapp-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		DEA3989DAEFBDAA85E3FCC41 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-pokemonsapp/Pods-pokemonsapp-frameworks.sh",
-				"${PODS_XCFRAMEWORKS_BUILD_DIR}/hermes-engine/Pre-built/hermes.framework/hermes",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/hermes.framework",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-pokemonsapp/Pods-pokemonsapp-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -332,7 +332,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F11748422D0307B40044C1D9 /* AppDelegate.swift in Sources */,
-				C217429B33C669C49ED4C8CA /* ExpoModulesProvider.swift in Sources */,
+				E5B9710E016F6000A344BE04 /* ExpoModulesProvider.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -341,12 +341,13 @@
 /* Begin XCBuildConfiguration section */
 		13B07F941A680F5B00A75B9A /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 1C0FABF02EEE55B94260B7AF /* Pods-pokemonsapp.debug.xcconfig */;
+			baseConfigurationReference = FF885F7BE4CD5134C7E58DAE /* Pods-pokemonsapp.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = pokemonsapp/pokemonsapp.entitlements;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 23SP9ZS4UU;
 				ENABLE_BITCODE = NO;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"$(inherited)",
@@ -377,12 +378,13 @@
 		};
 		13B07F951A680F5B00A75B9A /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 576AE7B8872F61844DF63376 /* Pods-pokemonsapp.release.xcconfig */;
+			baseConfigurationReference = 5BE85FB6C3401108AF9DE738 /* Pods-pokemonsapp.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = pokemonsapp/pokemonsapp.entitlements;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 23SP9ZS4UU;
 				INFOPLIST_FILE = pokemonsapp/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.1;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -460,10 +462,7 @@
 				LIBRARY_SEARCH_PATHS = "$(SDKROOT)/usr/lib/swift\"$(inherited)\"";
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
-				OTHER_LDFLAGS = (
-					"$(inherited)",
-					" ",
-				);
+				OTHER_LDFLAGS = "$(inherited)  ";
 				REACT_NATIVE_PATH = "${PODS_ROOT}/../../node_modules/react-native";
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) DEBUG";
@@ -518,10 +517,7 @@
 				);
 				LIBRARY_SEARCH_PATHS = "$(SDKROOT)/usr/lib/swift\"$(inherited)\"";
 				MTL_ENABLE_DEBUG_INFO = NO;
-				OTHER_LDFLAGS = (
-					"$(inherited)",
-					" ",
-				);
+				OTHER_LDFLAGS = "$(inherited)  ";
 				REACT_NATIVE_PATH = "${PODS_ROOT}/../../node_modules/react-native";
 				SDKROOT = iphoneos;
 				USE_HERMES = true;

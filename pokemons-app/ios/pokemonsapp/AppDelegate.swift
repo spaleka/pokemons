@@ -1,7 +1,6 @@
 import Expo
 import React
 import ReactAppDependencyProvider
-import GoogleMaps
 
 // @generated begin react-native-maps-import - expo prebuild (DO NOT MODIFY) sync-bee50fec513f89284e0fa3f5d935afdde33af98f
 #if canImport(GoogleMaps)
@@ -29,7 +28,6 @@ public class AppDelegate: ExpoAppDelegate {
 
 #if os(iOS) || os(tvOS)
     window = UIWindow(frame: UIScreen.main.bounds)
-     GMSServices.provideAPIKey("AIzaSyAIXgl0smEJdd4TX0hs_UezB3m4G4LPgwo")
     factory.startReactNative(
       withModuleName: "main",
       in: window,

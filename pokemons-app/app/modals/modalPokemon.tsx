@@ -47,8 +47,8 @@ export default function ModalPokemon() {
           showButton={false}
         />
       </View>
-      <Pressable onPress={() => handleRemove(id)}>
-        <Text style={styles.closeBtn}>Remove pin</Text>
+      <Pressable onPress={handleRemove}>
+        <Text style={styles.closeBtn}>REMOVE PIN</Text>
       </Pressable>
     </SafeAreaView>
   );
