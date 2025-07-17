@@ -13,7 +13,22 @@ export default function FavoriteCard({ pokemon, onRemove }: Props) {
     <View style={styles.pokemonContainer}>
       <Image style={styles.image} source={{ uri: pokemon.sprite }} />
       <Text style={styles.nameItem}>{pokemon.name}</Text>
-      <Text>Type: {pokemon.types.map((t) => t.type.name).join(", ")}</Text>
+      <Text>Type: </Text>
+      {/* <View style={{ flexDirection: "row" }}> */}
+      <Text>
+        {pokemon.types.map(
+          (t) =>
+            t.type.name
+            // <SvgUri
+            //   key={t.type.name}
+            //   uri={`https://raw.githubusercontent.com/partywhale/pokemon-type-icons/refs/heads/main/icons/${t.type.name}.svg`}
+            //   width={64}
+            //   height={28}
+            //   style={{ marginRight: 5 }}
+            // />
+        )}
+      </Text>
+      {/* </View> */}
       <Text>
         Abilities: {pokemon.abilities.map((a) => a.ability.name).join(", ")}
       </Text>

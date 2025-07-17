@@ -1,3 +1,4 @@
+import TabHeader from "@/components/TabHeader";
 import FontAwesome from "@expo/vector-icons/FontAwesome";
 import { Tabs } from "expo-router";
 
@@ -7,7 +8,8 @@ export default function Layout() {
       <Tabs.Screen
         name="index"
         options={{
-          headerShown: false,
+          // headerShown: false,
+          header: () => <TabHeader title="POKEMONS" />,
           title: "Home",
           tabBarIcon: ({ color }) => (
             <FontAwesome size={28} name="home" color={color} />
@@ -17,7 +19,8 @@ export default function Layout() {
       <Tabs.Screen
         name="favourite"
         options={{
-          headerShown: false,
+          // headerShown: false,
+          header: () => <TabHeader title="YOUR FAVOURITE POKEMONS" />,
           title: "Favourite",
           tabBarIcon: ({ color }) => (
             <FontAwesome size={28} name="heart" color={color} />

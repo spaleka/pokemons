@@ -1,6 +1,4 @@
-import CloseButton from "@/components/CloseButton";
 import MapList from "@/components/MapList";
-import TabHeader from "@/components/TabHeader";
 import { usePokemonPins } from "@/contexts/PinPokemonContext";
 import { PokemonListItem } from "@/hooks/usePokemons";
 import { useLocalSearchParams, useRouter } from "expo-router";
@@ -28,8 +26,6 @@ export default function ModalMap() {
 
   return (
     <SafeAreaView style={{ flex: 1 }}>
-      <CloseButton />
-      <TabHeader title="CHOOSE POKEMON TO PIN" />
       <MapList onSelect={handleSelect} />
     </SafeAreaView>
   );

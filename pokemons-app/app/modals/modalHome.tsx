@@ -1,6 +1,4 @@
-import CloseButton from "@/components/CloseButton";
 import { useLike } from "@/contexts/LikeContext";
-import { View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import PokemonDetails from "../../components/PokemonDetails";
 import { usePokemonSelection } from "../../contexts/PokemonSelectedContext";
@@ -15,19 +13,16 @@ export default function ModalHome() {
 
   return (
     <SafeAreaView>
-      <CloseButton />
-      <View>
-        <PokemonDetails
-          id={selectedPokemon.id}
-          name={selectedPokemon.name}
-          sprite={selectedPokemon.sprite}
-          types={selectedPokemon.types.map((t) => t.type.name)}
-          abilities={selectedPokemon.abilities.map((a) => a.ability.name)}
-          onSaveFavorite={() => saveFavorite(selectedPokemon)}
-          onRemoveFavorite={() => removeFavorite(selectedPokemon.id)}
-          showButton
-        />
-      </View>
+      <PokemonDetails
+        id={selectedPokemon.id}
+        name={selectedPokemon.name}
+        sprite={selectedPokemon.sprite}
+        types={selectedPokemon.types.map((t) => t.type.name)}
+        abilities={selectedPokemon.abilities.map((a) => a.ability.name)}
+        onSaveFavorite={() => saveFavorite(selectedPokemon)}
+        onRemoveFavorite={() => removeFavorite(selectedPokemon.id)}
+        showButton
+      />
     </SafeAreaView>
   );
 }

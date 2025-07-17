@@ -1,4 +1,3 @@
-import CloseButton from "@/components/CloseButton";
 import PokemonDetails from "@/components/PokemonDetails";
 import { usePokemonPins } from "@/contexts/PinPokemonContext";
 import FontAwesome from "@expo/vector-icons/FontAwesome";
@@ -32,7 +31,6 @@ export default function ModalPokemon() {
 
   return (
     <SafeAreaView>
-      <CloseButton />
       <View>
         <PokemonDetails
           id={numericId}

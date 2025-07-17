@@ -84,7 +84,6 @@ export default function Map() {
             />
           ))}
         </MapView>
-        {/* <BottomSheetMap /> */}
       </View>
     </GestureHandlerRootView>
   );
