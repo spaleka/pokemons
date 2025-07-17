@@ -1,27 +1,36 @@
-import FontAwesome from "@expo/vector-icons/FontAwesome";
+import { useLike } from "@/contexts/LikeContext";
+import useFetchPokemonsByIds from "@/hooks/useFetchPokemonById";
 import { useFocusEffect } from "@react-navigation/native";
 import React, { useCallback } from "react";
 import {
-  Image,
+  FlatList,
+  ListRenderItem,
   Pressable,
-  ScrollView,
   StyleSheet,
   Text,
   View,
 } from "react-native";
-import useFavoritePokemon from "../hooks/useFavouritePokemon";
+import FavoriteCard from "./FavoriteCard";
+
+export interface Pokemon {
+  id: number;
+  name: string;
+  sprite: string;
+  types: { type: { name: string } }[];
+  abilities: { ability: { name: string } }[];
+}
 
 const FavouritePokemon = () => {
-  const { favPokemon, loadFavorite, clearFavorite, removeFavorite } =
-    useFavoritePokemon();
+  const { favPokemon, clearFavorite, removeFavorite } = useLike();
+  const { pokemons, loading } = useFetchPokemonsByIds(favPokemon);
 
-  useFocusEffect(
-    useCallback(() => {
-      loadFavorite();
-    }, [loadFavorite])
-  );
+  useFocusEffect(useCallback(() => {}, []));
 
-  if (favPokemon.length === 0) {
+  if (loading) {
+    return <Text>Loading...</Text>;
+  }
+
+  if (!pokemons.length) {
     return (
       <View style={{ padding: 20 }}>
         <Text style={{ fontSize: 18 }}>No favourite Pokemons :(</Text>
@@ -29,30 +38,22 @@ const FavouritePokemon = () => {
     );
   }
 
+  const renderItem: ListRenderItem<Pokemon> = ({ item }) => (
+    <FavoriteCard pokemon={item} onRemove={removeFavorite} />
+  );
+
   return (
-    <>
+    <View style={{ flex: 1 }}>
       <Pressable onPress={clearFavorite}>
         <Text style={styles.removeBtn}>REMOVE ALL</Text>
       </Pressable>
-      <ScrollView contentContainerStyle={{ padding: 20 }}>
-        {favPokemon.map((pokemon) => (
-          <View key={pokemon.id} style={styles.pokemonContainer}>
-            <Image style={styles.image} source={{ uri: pokemon.sprite }} />
-            <Text style={styles.nameItem}>{pokemon.name}</Text>
-            <Text>
-              Type: {pokemon.types.map((t) => t.type.name).join(", ")}
-            </Text>
-            <Text>
-              Abilities:{" "}
-              {pokemon.abilities.map((a) => a.ability.name).join(", ")}
-            </Text>
-            <Pressable onPress={() => removeFavorite(pokemon.id)}>
-              <FontAwesome size={28} name="trash" color="grey" />
-            </Pressable>
-          </View>
-        ))}
-      </ScrollView>
-    </>
+      <FlatList
+        data={pokemons}
+        renderItem={renderItem}
+        keyExtractor={(item) => item.id.toString()}
+        contentContainerStyle={{ padding: 20 }}
+      />
+    </View>
   );
 };
 
@@ -80,6 +81,7 @@ const styles = StyleSheet.create({
     fontSize: 10,
     color: "red",
     textAlign: "right",
+    margin: 10,
   },
 });
 

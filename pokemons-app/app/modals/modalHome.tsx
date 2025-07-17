@@ -1,14 +1,15 @@
+import CloseButton from "@/components/CloseButton";
+import { useLike } from "@/contexts/LikeContext";
 import { useRouter } from "expo-router";
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import PokemonDetails from "../../components/PokemonDetails";
 import { usePokemonSelection } from "../../contexts/PokemonSelectedContext";
-import useFavoritePokemon from "../../hooks/useFavouritePokemon";
 
 export default function ModalHome() {
   const router = useRouter();
   const { selectedPokemon } = usePokemonSelection();
-  const { saveFavorite, removeFavorite } = useFavoritePokemon();
+  const { saveFavorite, removeFavorite } = useLike();
 
   if (!selectedPokemon) {
     return null;
@@ -16,11 +17,13 @@ export default function ModalHome() {
 
   return (
     <SafeAreaView>
-      <View>
+      {/* <View>
         <Text onPress={() => router.back()} style={styles.closeBtn}>
           X
         </Text>
-      </View>
+      </View> */}
+      <CloseButton />
+
       <View>
         <PokemonDetails
           id={selectedPokemon.id}

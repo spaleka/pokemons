@@ -2,13 +2,13 @@ import { usePokemonSelection } from "@/contexts/PokemonSelectedContext";
 import { PokemonListItem } from "@/hooks/usePokemons";
 import { useRouter } from "expo-router";
 import React from "react";
-import useFavouritePokemon from "../hooks/useFavouritePokemon";
+import { useLike } from "@/contexts/LikeContext";
 import PokemonListBase from "./PokemonListBase";
 
 const PokemonList = () => {
   type Pokemon = PokemonListItem;
 
-  const { saveFavorite, removeFavorite } = useFavouritePokemon();
+  const { saveFavorite, removeFavorite } = useLike();
   const { selectPokemon } = usePokemonSelection();
   const router = useRouter();
 
