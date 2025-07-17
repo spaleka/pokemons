@@ -1,21 +1,24 @@
+import FontAwesome from "@expo/vector-icons/FontAwesome";
 import { useRouter } from "expo-router";
 import React from "react";
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet, View } from "react-native";
 
 export default function CloseButton() {
   const router = useRouter();
   return (
     <View>
-      <Text onPress={() => router.back()} style={styles.closeBtn}>
-        X
-      </Text>
+      <FontAwesome
+        onPress={() => router.back()}
+        style={styles.closeBtn}
+        size={25}
+        name="close"
+      />
     </View>
   );
 }
 
 const styles = StyleSheet.create({
   closeBtn: {
-    fontSize: 18,
     textAlign: "right",
     padding: 15,
   },

@@ -1,15 +1,14 @@
 import React from "react";
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 
+import TabHeader from "@/components/TabHeader";
 import FavouritePokemon from "../../components/FavouritePokemon";
 
 export default function Favourite() {
   return (
     <SafeAreaView style={{ flex: 1 }}>
-      <View style={styles.titleContainer}>
-        <Text>YOUR FAVOURITE POKEMONS</Text>
-      </View>
+      <TabHeader title="YOUR FAVOURITE POKEMONS" />
       <FavouritePokemon />
     </SafeAreaView>
   );

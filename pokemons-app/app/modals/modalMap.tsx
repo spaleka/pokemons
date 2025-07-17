@@ -1,8 +1,9 @@
+import CloseButton from "@/components/CloseButton";
 import MapList from "@/components/MapList";
+import TabHeader from "@/components/TabHeader";
 import { usePokemonPins } from "@/contexts/PinPokemonContext";
 import { PokemonListItem } from "@/hooks/usePokemons";
 import { useLocalSearchParams, useRouter } from "expo-router";
-import { StyleSheet, Text, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 
 export default function ModalMap() {
@@ -27,26 +28,9 @@ export default function ModalMap() {
 
   return (
     <SafeAreaView style={{ flex: 1 }}>
-      <View>
-        <Text onPress={() => router.back()} style={styles.closeBtn}>
-          X
-        </Text>
-        <Text style={styles.title}>CHOOSE POKEMON TO PIN</Text>
-      </View>
+      <CloseButton />
+      <TabHeader title="CHOOSE POKEMON TO PIN" />
       <MapList onSelect={handleSelect} />
     </SafeAreaView>
   );
 }
-
-const styles = StyleSheet.create({
-  closeBtn: {
-    fontSize: 18,
-    textAlign: "right",
-    padding: 15,
-  },
-  title: {
-    fontSize: 16,
-    textAlign: "center",
-    marginBottom: 10,
-  },
-});

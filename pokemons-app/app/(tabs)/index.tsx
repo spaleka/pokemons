@@ -1,5 +1,6 @@
+import TabHeader from "@/components/TabHeader";
 import React from "react";
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import PokemonList from "../../components/PokemonList";
 
@@ -8,9 +9,10 @@ export default function Home() {
     <SafeAreaView style={{ flex: 1 }}>
       {/* <GestureHandlerRootView style={{ flex: 1 }}> */}
       {/* <PokemonSelectionProvider> */}
-      <View style={styles.titleContainer}>
+      {/* <View style={styles.titleContainer}>
         <Text>CHOOSE YOUR POKEMON</Text>
-      </View>
+      </View> */}
+      <TabHeader title="POKEMONS" />
       <PokemonList />
       {/* <BottomSheetHome /> */}
       {/* </PokemonSelectionProvider> */}
@@ -28,9 +30,5 @@ const styles = StyleSheet.create({
   titlePokemons: {
     fontSize: 24,
     fontWeight: "bold",
-  },
-  link: {
-    paddingTop: 20,
-    fontSize: 20,
   },
 });

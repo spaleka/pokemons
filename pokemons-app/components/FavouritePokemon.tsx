@@ -58,25 +58,6 @@ const FavouritePokemon = () => {
 };
 
 const styles = StyleSheet.create({
-  pokemonContainer: {
-    flex: 1,
-    padding: 20,
-    alignItems: "center",
-    gap: 12,
-    margin: 5,
-    borderWidth: 1,
-    borderColor: "black",
-    borderRadius: 12,
-  },
-  nameItem: {
-    fontSize: 24,
-    fontWeight: "bold",
-    textTransform: "capitalize",
-  },
-  image: {
-    width: 200,
-    height: 200,
-  },
   removeBtn: {
     fontSize: 10,
     color: "red",

@@ -1,8 +1,10 @@
+import CloseButton from "@/components/CloseButton";
 import PokemonDetails from "@/components/PokemonDetails";
 import { usePokemonPins } from "@/contexts/PinPokemonContext";
+import FontAwesome from "@expo/vector-icons/FontAwesome";
 import { useLocalSearchParams, useRouter } from "expo-router";
 import React from "react";
-import { Pressable, StyleSheet, Text, View } from "react-native";
+import { Pressable, StyleSheet, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 
 export default function ModalPokemon() {
@@ -30,11 +32,7 @@ export default function ModalPokemon() {
 
   return (
     <SafeAreaView>
-      <View>
-        <Text onPress={() => router.back()} style={styles.closeBtn}>
-          X
-        </Text>
-      </View>
+      <CloseButton />
       <View>
         <PokemonDetails
           id={numericId}
@@ -48,7 +46,13 @@ export default function ModalPokemon() {
         />
       </View>
       <Pressable onPress={handleRemove}>
-        <Text style={styles.closeBtn}>REMOVE PIN</Text>
+        <FontAwesome
+          size={28}
+          name="trash"
+          color="grey"
+          style={styles.closeBtn}
+        />
+        {/* <Text style={styles.closeBtn}>REMOVE PIN</Text> */}
       </Pressable>
     </SafeAreaView>
   );
@@ -61,8 +65,8 @@ const styles = StyleSheet.create({
     justifyContent: "center",
   },
   closeBtn: {
-    fontSize: 18,
+    // fontSize: 18,
     textAlign: "right",
-    padding: 15,
+    paddingRight: 25,
   },
 });
