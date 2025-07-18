@@ -1,5 +1,5 @@
 import React from "react";
-import { View } from "react-native";
+import { SafeAreaView } from "react-native-safe-area-context";
 import CloseButton from "./CloseButton";
 import TabHeader from "./TabHeader";
 
@@ -9,9 +9,9 @@ type ModalHeaderProp = {
 
 export default function ModalHeader({ title }: ModalHeaderProp) {
   return (
-    <View>
+    <SafeAreaView>
       <CloseButton />
       <TabHeader title={title} />
-    </View>
+    </SafeAreaView>
   );
 }

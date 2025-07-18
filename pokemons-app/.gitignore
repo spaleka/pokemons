@@ -39,4 +39,6 @@ yarn-error.*
 app-example
 
 mcp.json
-.cursor/mcp.json
+.cursor
+
+.idea

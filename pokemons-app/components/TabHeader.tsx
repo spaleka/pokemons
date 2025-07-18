@@ -1,5 +1,6 @@
 import React from "react";
-import { SafeAreaView, StyleSheet, Text, View } from "react-native";
+import { StyleSheet, Text, View } from "react-native";
+import { SafeAreaView } from "react-native-safe-area-context";
 
 type TabHeaderProps = {
   title: string;
@@ -17,7 +18,7 @@ export default function TabHeader({ title }: TabHeaderProps) {
 
 const styles = StyleSheet.create({
   titleContainer: {
-    padding: 20,
+    padding: 10,
     justifyContent: "center",
     alignItems: "center",
   },

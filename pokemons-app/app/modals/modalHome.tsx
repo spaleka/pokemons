@@ -1,5 +1,5 @@
 import { useLike } from "@/contexts/LikeContext";
-import { SafeAreaView } from "react-native";
+import { View } from "react-native";
 import PokemonDetails from "../../components/PokemonDetails";
 import { usePokemonSelection } from "../../contexts/PokemonSelectedContext";
 
@@ -12,12 +12,12 @@ export default function ModalHome() {
   }
 
   return (
-    <SafeAreaView>
+    <View>
       <PokemonDetails
         id={selectedPokemonId}
         onSaveFavorite={(id) => saveFavorite({ id })}
         onRemoveFavorite={removeFavorite}
       />
-    </SafeAreaView>
+    </View>
   );
 }

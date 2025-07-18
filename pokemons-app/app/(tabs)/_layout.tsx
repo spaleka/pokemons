@@ -9,7 +9,7 @@ export default function Layout() {
         name="index"
         options={{
           // headerShown: false,
-          header: () => <TabHeader title="POKEMONS" />,
+          header: () => <TabHeader title="POKEMON" />,
           title: "Home",
           tabBarIcon: ({ color }) => (
             <FontAwesome size={28} name="home" color={color} />
@@ -20,7 +20,7 @@ export default function Layout() {
         name="favourite"
         options={{
           // headerShown: false,
-          header: () => <TabHeader title="YOUR FAVOURITE POKEMONS" />,
+          header: () => <TabHeader title="YOUR FAVOURITE POKEMON" />,
           title: "Favourite",
           tabBarIcon: ({ color }) => (
             <FontAwesome size={28} name="heart" color={color} />

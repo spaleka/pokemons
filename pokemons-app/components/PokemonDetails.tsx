@@ -3,6 +3,7 @@ import useFetchPokemonById from "@/hooks/useFetchPokemonById";
 import React from "react";
 import { Image, StyleSheet, Text, View } from "react-native";
 import LikeButton from "./LikeButton";
+import LoadingSpinner from "./LoadingSpinner";
 
 interface PokemonDetailsProps {
   id: number;
@@ -18,7 +19,8 @@ const PokemonDetails = ({
   showLikeButton = true,
 }: PokemonDetailsProps) => {
   const { pokemon, loading } = useFetchPokemonById(id);
-  if (loading) return <Text>Loading...</Text>;
+
+  if (loading) return <LoadingSpinner />;
   if (!pokemon) return <Text>Not found</Text>;
   return (
     <View style={styles.pokemonContainer}>

@@ -1,6 +1,7 @@
 import React from "react";
-import { FlatList, Text } from "react-native";
+import { FlatList } from "react-native";
 import usePokemons, { PokemonListItem } from "../hooks/usePokemons";
+import LoadingSpinner from "./LoadingSpinner";
 import PokemonCard from "./PokemonCard";
 
 export type PokemonListBaseProps = {
@@ -18,7 +19,7 @@ const PokemonListBase = ({
 }: PokemonListBaseProps) => {
   const { data, loading, loadMore, hasNextPage } = usePokemons();
 
-  if (!data.length && loading) return <Text>Loading...</Text>;
+  if (!data.length && loading) return <LoadingSpinner />;
 
   return (
     <FlatList
@@ -38,9 +39,7 @@ const PokemonListBase = ({
       style={{ flex: 1 }}
       onEndReached={loadMore}
       onEndReachedThreshold={0.5}
-      ListFooterComponent={
-        loading && hasNextPage ? <Text>Loading more...</Text> : null
-      }
+      ListFooterComponent={loading && hasNextPage ? <LoadingSpinner /> : null}
     />
   );
 };
