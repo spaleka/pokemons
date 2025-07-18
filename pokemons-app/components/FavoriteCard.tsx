@@ -1,43 +1,51 @@
-import FontAwesome from "@expo/vector-icons/FontAwesome";
+import typeIcons from "@/constants/typeIcons";
+import useFetchPokemonById from "@/hooks/useFetchPokemonById";
 import React from "react";
-import { Image, Pressable, StyleSheet, Text, View } from "react-native";
+import { Image, StyleSheet, Text, View } from "react-native";
 import { Pokemon } from "./FavouritePokemon";
+import LikeButton from "./LikeButton";
 
-type Props = {
-  pokemon: Pokemon;
+interface FavoriteCardProps {
+  id: number;
   onRemove: (id: number) => void;
-};
+}
 
-export default function FavoriteCard({ pokemon, onRemove }: Props) {
+const FavoriteCard = ({ id, onRemove }: FavoriteCardProps) => {
+  const { pokemon, loading } = useFetchPokemonById(id);
+  const typedPokemon = pokemon as Pokemon | null;
+  if (loading) return <Text>Loading...</Text>;
+  if (!typedPokemon) return <Text>Not found</Text>;
   return (
     <View style={styles.pokemonContainer}>
-      <Image style={styles.image} source={{ uri: pokemon.sprite }} />
-      <Text style={styles.nameItem}>{pokemon.name}</Text>
-      <Text>Type: </Text>
-      {/* <View style={{ flexDirection: "row" }}> */}
-      <Text>
-        {pokemon.types.map(
-          (t) =>
-            t.type.name
-            // <SvgUri
-            //   key={t.type.name}
-            //   uri={`https://raw.githubusercontent.com/partywhale/pokemon-type-icons/refs/heads/main/icons/${t.type.name}.svg`}
-            //   width={64}
-            //   height={28}
-            //   style={{ marginRight: 5 }}
-            // />
+      <Image style={styles.image} source={{ uri: typedPokemon.sprite }} />
+      <Text style={styles.nameItem}>{typedPokemon.name}</Text>
+      <View style={{ flexDirection: "row", alignItems: "center" }}>
+        <Text>Type: </Text>
+        {typedPokemon.types.map((t) =>
+          typeIcons[t.type.name] ? (
+            <Image
+              key={t.type.name}
+              source={typeIcons[t.type.name]}
+              style={{ width: 24, height: 24, marginHorizontal: 4 }}
+            />
+          ) : (
+            <Text key={t.type.name}>{t.type.name}</Text>
+          )
         )}
-      </Text>
-      {/* </View> */}
+      </View>
       <Text>
-        Abilities: {pokemon.abilities.map((a) => a.ability.name).join(", ")}
+        Abilities:{" "}
+        {typedPokemon.abilities.map((a) => a.ability.name).join(", ")}
       </Text>
-      <Pressable onPress={() => onRemove(pokemon.id)}>
-        <FontAwesome size={28} name="heart" color="red" />
-      </Pressable>
+      <LikeButton
+        id={typedPokemon.id}
+        onRemoveFavorite={() => onRemove(typedPokemon.id)}
+        onSaveFavorite={() => {}}
+        stopPropagation={true}
+      />
     </View>
   );
-}
+};
 
 const styles = StyleSheet.create({
   pokemonContainer: {
@@ -66,3 +74,4 @@ const styles = StyleSheet.create({
     margin: 10,
   },
 });
+export default FavoriteCard;

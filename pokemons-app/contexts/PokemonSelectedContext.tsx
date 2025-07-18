@@ -5,13 +5,10 @@ import React, {
   useContext,
   useState,
 } from "react";
-import { PokemonListItem } from "../hooks/usePokemons";
-
-type Pokemon = PokemonListItem;
 
 type PokemonSelectionContextType = {
-  selectedPokemon: Pokemon | null;
-  selectPokemon: (pokemon: Pokemon) => void;
+  selectedPokemonId: number | null;
+  selectPokemon: (id: number) => void;
   clearSelection: () => void;
 };
 
@@ -22,19 +19,21 @@ const PokemonSelectionContext = createContext<
 export const PokemonSelectionProvider: FC<{
   children: ReactNode;
 }> = ({ children }) => {
-  const [selectedPokemon, setSelectedPokemon] = useState<Pokemon | null>(null);
+  const [selectedPokemonId, setSelectedPokemonId] = useState<number | null>(
+    null
+  );
 
-  const selectPokemon = (pokemon: Pokemon) => {
-    setSelectedPokemon(pokemon);
+  const selectPokemon = (id: number) => {
+    setSelectedPokemonId(id);
   };
 
   const clearSelection = () => {
-    setSelectedPokemon(null);
+    setSelectedPokemonId(null);
   };
 
   return (
     <PokemonSelectionContext.Provider
-      value={{ selectedPokemon, selectPokemon, clearSelection }}
+      value={{ selectedPokemonId, selectPokemon, clearSelection }}
     >
       {children}
     </PokemonSelectionContext.Provider>

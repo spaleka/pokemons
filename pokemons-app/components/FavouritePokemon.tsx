@@ -1,7 +1,5 @@
 import { useLike } from "@/contexts/LikeContext";
-import useFetchPokemonsByIds from "@/hooks/useFetchPokemonById";
-import { useFocusEffect } from "@react-navigation/native";
-import React, { useCallback } from "react";
+import React from "react";
 import {
   FlatList,
   ListRenderItem,
@@ -22,15 +20,12 @@ export interface Pokemon {
 
 const FavouritePokemon = () => {
   const { favPokemon, clearFavorite, removeFavorite } = useLike();
-  const { pokemons, loading } = useFetchPokemonsByIds(favPokemon);
 
-  useFocusEffect(useCallback(() => {}, []));
+  const renderItem: ListRenderItem<number> = ({ item }) => (
+    <FavoriteCard id={item} onRemove={removeFavorite} />
+  );
 
-  if (loading) {
-    return <Text>Loading...</Text>;
-  }
-
-  if (!pokemons.length) {
+  if (!favPokemon.length) {
     return (
       <View style={{ padding: 20 }}>
         <Text style={{ fontSize: 18 }}>No favourite Pokemons :(</Text>
@@ -38,19 +33,15 @@ const FavouritePokemon = () => {
     );
   }
 
-  const renderItem: ListRenderItem<Pokemon> = ({ item }) => (
-    <FavoriteCard pokemon={item} onRemove={removeFavorite} />
-  );
-
   return (
     <View style={{ flex: 1 }}>
       <Pressable onPress={clearFavorite}>
         <Text style={styles.removeBtn}>REMOVE ALL</Text>
       </Pressable>
       <FlatList
-        data={pokemons}
+        data={favPokemon}
         renderItem={renderItem}
-        keyExtractor={(item) => item.id.toString()}
+        keyExtractor={(item) => item.toString()}
         contentContainerStyle={{ padding: 20 }}
       />
     </View>

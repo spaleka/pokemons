@@ -1,10 +1,6 @@
-import axios from "axios";
 import { PokemonListItem } from "@/hooks/usePokemons";
+import axios from "axios";
 
-/**
- * Fetches Pokémon details by either ID (number) or direct URL (string).
- * @param idOrUrl - Pokémon ID (number) or API URL (string)
- */
 export default async function fetchPokemonDetails(
   idOrUrl: number | string
 ): Promise<PokemonListItem> {

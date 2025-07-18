@@ -1,8 +1,8 @@
+import { useLike } from "@/contexts/LikeContext";
 import { usePokemonSelection } from "@/contexts/PokemonSelectedContext";
 import { PokemonListItem } from "@/hooks/usePokemons";
 import { useRouter } from "expo-router";
 import React from "react";
-import { useLike } from "@/contexts/LikeContext";
 import PokemonListBase from "./PokemonListBase";
 
 const PokemonList = () => {
@@ -13,7 +13,7 @@ const PokemonList = () => {
   const router = useRouter();
 
   const handlePress = (pokemon: Pokemon) => {
-    selectPokemon(pokemon);
+    selectPokemon(pokemon.id);
     router.push("/modals/modalHome");
   };
 

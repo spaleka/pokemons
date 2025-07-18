@@ -50,7 +50,6 @@ export default function ModalPokemon() {
           color="grey"
           style={styles.closeBtn}
         />
-        {/* <Text style={styles.closeBtn}>REMOVE PIN</Text> */}
       </Pressable>
     </SafeAreaView>
   );
