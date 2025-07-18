@@ -1,53 +1,65 @@
+import typeIcons from "@/constants/typeIcons";
+import useFetchPokemonById from "@/hooks/useFetchPokemonById";
 import React from "react";
-import { Image, ScrollView, StyleSheet, Text, View } from "react-native";
-import LikeButtton from "./LikeButton";
+import { Image, StyleSheet, Text, View } from "react-native";
+import LikeButton from "./LikeButton";
 
-type PokemonDetailsProps = {
+interface PokemonDetailsProps {
   id: number;
-  name: string;
-  sprite: string;
-  types: string[];
-  abilities: string[];
-  onSaveFavorite: () => void;
-  onRemoveFavorite: () => void;
-  showButton?: boolean;
-};
+  onRemoveFavorite?: (id: number) => void;
+  onSaveFavorite?: (id: number) => void;
+  showLikeButton?: boolean;
+}
 
 const PokemonDetails = ({
   id,
-  name,
-  sprite,
-  types,
-  abilities,
   onRemoveFavorite,
   onSaveFavorite,
-  showButton = true,
+  showLikeButton = true,
 }: PokemonDetailsProps) => {
+  const { pokemon, loading } = useFetchPokemonById(id);
+  if (loading) return <Text>Loading...</Text>;
+  if (!pokemon) return <Text>Not found</Text>;
   return (
-    <>
-      <ScrollView contentContainerStyle={{ padding: 20 }}>
-        <View style={styles.pokemonContainer}>
-          <Image style={styles.image} source={{ uri: sprite }} />
-          <Text style={styles.nameItem}>{name}</Text>
-          <Text>Type: {types?.join(", ")}</Text>
-          <Text>Abilities: {abilities?.join(", ")}</Text>
-          {showButton && (
-            <LikeButtton
-              id={id}
-              onRemoveFavorite={onRemoveFavorite}
-              onSaveFavorite={onSaveFavorite}
-              stopPropagation={true}
+    <View style={styles.pokemonContainer}>
+      <Image style={styles.image} source={{ uri: pokemon.sprite }} />
+      <Text style={styles.nameItem}>{pokemon.name}</Text>
+      <View style={{ flexDirection: "row", alignItems: "center" }}>
+        <Text>Type: </Text>
+        {pokemon.types.map((t: any) =>
+          typeIcons[t.type.name] ? (
+            <Image
+              key={t.type.name}
+              source={typeIcons[t.type.name]}
+              style={{ width: 24, height: 24, marginHorizontal: 4 }}
             />
-          )}
-        </View>
-      </ScrollView>
-    </>
+          ) : (
+            <Text key={t.type.name}>{t.type.name}</Text>
+          )
+        )}
+      </View>
+      <Text>
+        Abilities:{" "}
+        {pokemon.abilities.map((a: any) => a.ability.name).join(", ")}
+      </Text>
+      {showLikeButton && (
+        <LikeButton
+          id={pokemon.id}
+          onRemoveFavorite={
+            onRemoveFavorite ? () => onRemoveFavorite(pokemon.id) : () => {}
+          }
+          onSaveFavorite={
+            onSaveFavorite ? () => onSaveFavorite(pokemon.id) : () => {}
+          }
+          stopPropagation={true}
+        />
+      )}
+    </View>
   );
 };
 
 const styles = StyleSheet.create({
   pokemonContainer: {
-    flex: 1,
     padding: 20,
     alignItems: "center",
     gap: 12,
@@ -65,11 +77,11 @@ const styles = StyleSheet.create({
     width: 200,
     height: 200,
   },
-  closeBtn: {
+  removeBtn: {
     fontSize: 10,
     color: "red",
     textAlign: "right",
+    margin: 10,
   },
 });
-
 export default PokemonDetails;

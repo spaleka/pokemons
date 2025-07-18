@@ -1,4 +1,4 @@
-import { PokemonListItem } from "@/hooks/usePokemons";
+// import { PokemonListItem } from "@/hooks/usePokemons";
 import React, {
   createContext,
   FC,
@@ -7,10 +7,10 @@ import React, {
   useState,
 } from "react";
 
-type Pokemon = PokemonListItem;
+// type Pokemon = PokemonListItem;
 type Pin = {
   id: string;
-  pokemon: Pokemon;
+  // pokemon: Pokemon;
   coordinate: { latitude: number; longitude: number };
 };
 

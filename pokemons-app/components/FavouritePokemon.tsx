@@ -8,7 +8,7 @@ import {
   Text,
   View,
 } from "react-native";
-import FavoriteCard from "./FavoriteCard";
+import PokemonDetails from "./PokemonDetails";
 
 export interface Pokemon {
   id: number;
@@ -22,7 +22,7 @@ const FavouritePokemon = () => {
   const { favPokemon, clearFavorite, removeFavorite } = useLike();
 
   const renderItem: ListRenderItem<number> = ({ item }) => (
-    <FavoriteCard id={item} onRemove={removeFavorite} />
+    <PokemonDetails id={item} onRemoveFavorite={removeFavorite} />
   );
 
   if (!favPokemon.length) {
