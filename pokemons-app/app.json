@@ -8,7 +8,7 @@
     "scheme": "pokemonsapp",
     "userInterfaceStyle": "automatic",
     "newArchEnabled": true,
-     "splash": {
+    "splash": {
       "image": "./assets/images/splash-icon.png",
       "resizeMode": "contain",
       "imageWidth": 200,
@@ -28,6 +28,12 @@
       },
       "edgeToEdgeEnabled": true,
       "package": "com.anonymous.pokemonsapp",
+      "minSdkVersion": 26,
+      "compileSdkVersion": 34,
+      "targetSdkVersion": 34,
+      "permissions": [
+         "android.permission.CAMERA"
+      ],
       "config": {
         "googleMaps": {
           "apiKey": "AIzaSyAIXgl0smEJdd4TX0hs_UezB3m4G4LPgwo"
@@ -38,11 +44,25 @@
       "expo-maps",
       "expo-router",
       [
-      "react-native-vision-camera",
+        "react-native-vision-camera",
+        {
+          "cameraPermissionText": "pokemonsapp needs access to your Camera."
+        }
+      ],
+      [
+      "expo-build-properties",
       {
-        "cameraPermissionText": "pokemonsapp needs access to your Camera."
-      }
-    ]
+          "android": {
+            "minSdkVersion": 26,
+            "compileSdkVersion": 35,
+            "targetSdkVersion": 35,
+            "buildToolsVersion": "35.0.0"
+          },
+          "ios": {
+            "deploymentTarget": "15.5"
+          }
+        }
+      ]
     ],
     "web": {
       "bundler": "metro",

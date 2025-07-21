@@ -1,4 +1,3 @@
-// import { PokemonListItem } from "@/hooks/usePokemons";
 import React, {
   createContext,
   FC,
@@ -7,10 +6,9 @@ import React, {
   useState,
 } from "react";
 
-// type Pokemon = PokemonListItem;
 type Pin = {
   id: string;
-  // pokemon: Pokemon;
+  pokemonId: number;
   coordinate: { latitude: number; longitude: number };
 };
 

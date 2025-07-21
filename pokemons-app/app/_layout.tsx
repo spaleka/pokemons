@@ -15,7 +15,7 @@ export default function Layout() {
               name="modals/modalHome"
               options={{
                 presentation: "modal",
-                header: () => <ModalHeader title="" />,
+                header: () => <ModalHeader />,
               }}
             />
             <Stack.Screen
@@ -31,7 +31,7 @@ export default function Layout() {
               options={{
                 presentation: "modal",
                 // headerShown: false,
-                header: () => <ModalHeader title="" />,
+                header: () => <ModalHeader />,
               }}
             />
           </Stack>

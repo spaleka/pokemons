@@ -90,7 +90,7 @@ android {
     namespace 'com.anonymous.pokemonsapp'
     defaultConfig {
         applicationId 'com.anonymous.pokemonsapp'
-        minSdkVersion rootProject.ext.minSdkVersion
+        minSdkVersion 26
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1
         versionName "1.0.0"
@@ -121,6 +121,8 @@ android {
         jniLibs {
             useLegacyPackaging (findProperty('expo.useLegacyPackaging')?.toBoolean() ?: false)
         }
+        pickFirst "**/libc++_shared.so"
+    pickFirst "**/libreactnativejni.so"
     }
     androidResources {
         ignoreAssetsPattern '!.svn:!.git:!.ds_store:!*.scc:!CVS:!thumbs.db:!picasa.ini:!*~'

@@ -5,7 +5,6 @@ import FontAwesome from "@expo/vector-icons/FontAwesome";
 import { useLocalSearchParams, useRouter } from "expo-router";
 import React from "react";
 import { Pressable, StyleSheet, View } from "react-native";
-import { SafeAreaView } from "react-native-safe-area-context";
 
 export default function ModalPokemon() {
   const router = useRouter();
@@ -25,7 +24,7 @@ export default function ModalPokemon() {
   };
 
   return (
-    <SafeAreaView>
+    <View style={{ flex: 1 }}>
       <View>
         <PokemonDetails
           id={numericId}
@@ -42,7 +41,7 @@ export default function ModalPokemon() {
           style={styles.closeBtn}
         />
       </Pressable>
-    </SafeAreaView>
+    </View>
   );
 }
 

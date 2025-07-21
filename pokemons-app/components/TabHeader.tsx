@@ -1,5 +1,5 @@
 import React from "react";
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet, Text } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 
 type TabHeaderProps = {
@@ -8,10 +8,10 @@ type TabHeaderProps = {
 
 export default function TabHeader({ title }: TabHeaderProps) {
   return (
-    <SafeAreaView>
-      <View style={styles.titleContainer}>
-        <Text style={styles.titlePokemons}>{title}</Text>
-      </View>
+    <SafeAreaView style={styles.titleContainer}>
+      {/* <View style={styles.titleContainer}> */}
+      <Text style={styles.titlePokemons}>{title}</Text>
+      {/* </View> */}
     </SafeAreaView>
   );
 }

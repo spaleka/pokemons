@@ -1,4 +1,5 @@
 import { usePokemonPins } from "@/contexts/PinPokemonContext";
+import useFetchPokemonById from "@/hooks/useFetchPokemonById";
 import { useRouter } from "expo-router";
 import React from "react";
 import { Alert, StyleSheet, View } from "react-native";
@@ -42,23 +43,43 @@ export default function Map() {
     );
 
     if (matchingPin) {
+      const pokemonId = matchingPin.pokemonId;
+
       router.push({
         pathname: "/modals/modalPokemon",
         params: {
-          id: matchingPin.pokemon.id.toString(),
-          name: matchingPin.pokemon.name,
-          sprite: matchingPin.pokemon.sprite,
-          types: matchingPin.pokemon.types.map((t) => t.type.name).join(","),
-          abilities: matchingPin.pokemon.abilities
-            .map((t) => t.ability.name)
-            .join(","),
+          id: pokemonId.toString(),
           pinId: matchingPin.id,
         },
       });
-      console.log(matchingPin.pokemon.types);
     } else {
       Alert.alert("Marker Pressed", `Unknown pin at ${latitude}, ${longitude}`);
     }
+  };
+
+  const PokemonMarker = ({ pin }: { pin: any }) => {
+    const { pokemon, loading } = useFetchPokemonById(pin.pokemonId);
+
+    if (loading || !pokemon) {
+      return (
+        <Marker
+          key={pin.id}
+          coordinate={pin.coordinate}
+          anchor={{ x: 0.5, y: 0.5 }}
+        />
+      );
+    }
+
+    return (
+      <Marker
+        key={pin.id}
+        coordinate={pin.coordinate}
+        anchor={{ x: 0.5, y: 0.5 }}
+        image={{
+          uri: pokemon.sprite,
+        }}
+      />
+    );
   };
 
   return (
@@ -74,14 +95,7 @@ export default function Map() {
           onMarkerPress={handleMarkerPress}
         >
           {pins.map((pin) => (
-            <Marker
-              key={pin.id}
-              coordinate={pin.coordinate}
-              anchor={{ x: 0.5, y: 0.5 }}
-              image={{
-                uri: pin.pokemon.sprite,
-              }}
-            />
+            <PokemonMarker key={pin.id} pin={pin} />
           ))}
         </MapView>
       </View>

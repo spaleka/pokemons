@@ -2,7 +2,8 @@ import MapList from "@/components/MapList";
 import { usePokemonPins } from "@/contexts/PinPokemonContext";
 import { PokemonListItem } from "@/hooks/usePokemons";
 import { useLocalSearchParams, useRouter } from "expo-router";
-import { SafeAreaView } from "react-native-safe-area-context";
+import { View } from "react-native";
+// import { SafeAreaView } from "react-native-safe-area-context";
 
 export default function ModalMap() {
   const router = useRouter();
@@ -17,7 +18,7 @@ export default function ModalMap() {
 
     addPin({
       id: Math.random().toString(),
-      pokemon,
+      pokemonId: pokemon.id,
       coordinate,
     });
 
@@ -25,8 +26,8 @@ export default function ModalMap() {
   };
 
   return (
-    <SafeAreaView style={{ flex: 1 }}>
+    <View style={{ flex: 1 }}>
       <MapList onSelect={handleSelect} />
-    </SafeAreaView>
+    </View>
   );
 }
